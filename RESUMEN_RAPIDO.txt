@@ -1,0 +1,199 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                    RESUMEN RÁPIDO - REEMPLAZO DE IMÁGENES                   ║
+║                             Emiliano-Cacciavillani                          ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 1. ESTRUCTURA DE CARPETAS (YA CREADA)                                       │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+   proyecto/
+   ├── images/
+   │   ├── hero/         ← 3 imágenes del slider
+   │   ├── mision/       ← 1 foto de perfil
+   │   ├── proyectos/    ← 12 imágenes (3 proyectos x 4 c/u)
+   │   └── galeria/      ← Fotos de galería (6+)
+   └── web_botanica.html ← Tu archivo principal
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 2. IMÁGENES QUE NECESITAS (28 MÍNIMO)                                       │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+📍 HERO (3 imágenes - 1920x1080)
+   • slide-1.jpg          Selva exuberante
+   • slide-2.jpg          Bosque verde
+   • slide-3.jpg          Bosque andino
+
+📍 MISIÓN (1 imagen - 600x750)
+   • emiliano.jpg         Foto de perfil
+
+📍 PROYECTOS (12 imágenes)
+   Proyecto 1 (Amazonía):
+   • proyecto-1-main.jpg
+   • proyecto-1-thumb-1.jpg
+   • proyecto-1-thumb-2.jpg
+   • proyecto-1-thumb-3.jpg
+
+   Proyecto 2 (Cusco):
+   • proyecto-2-main.jpg
+   • proyecto-2-thumb-1.jpg
+   • proyecto-2-thumb-2.jpg
+   • proyecto-2-thumb-3.jpg
+
+   Proyecto 3 (Tercero):
+   • proyecto-3-main.jpg
+   • proyecto-3-thumb-1.jpg
+   • proyecto-3-thumb-2.jpg
+   • proyecto-3-thumb-3.jpg
+
+📍 GALERÍA (6+ imágenes)
+   • foto-1.jpg
+   • foto-2.jpg
+   • foto-3.jpg
+   • foto-4.jpg
+   • foto-5.jpg
+   • foto-6.jpg
+   (agrega más si quieres)
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 3. DÓNDE REEMPLAZAR EN EL HTML                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+🔴 HERO SLIDES (líneas 244-252)
+   Cambiar: background: linear-gradient(...) 
+   Por:     background-image: url('images/hero/slide-N.jpg')
+
+🔴 MISIÓN (líneas 1218-1233)
+   Cambiar: <svg>...</svg>
+   Por:     <img src="images/mision/emiliano.jpg" ...>
+
+🔴 PROYECTO 1 - Principal (línea 1307)
+   Cambiar: background: linear-gradient(...)
+   Por:     background-image: url('images/proyectos/proyecto-1-main.jpg')
+
+🔴 PROYECTO 1 - Miniaturas (líneas 1318-1320)
+   Cambiar: <div class="gallery-thumb-inner"></div>
+   Por:     <div class="gallery-thumb-inner" style="background-image: url('...')"></div>
+
+🔴 PROYECTO 2 - Principal + Miniaturas (líneas 1381+)
+   Mismo patrón que Proyecto 1
+
+🔴 PROYECTO 3 - Principal + Miniaturas (líneas 1454+)
+   Mismo patrón que Proyecto 1
+
+🔴 GALERÍA (línea ~1730+)
+   Cambiar: <div class="galeria-item"></div>
+   Por:     <div class="galeria-item" style="background-image: url('...')"></div>
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 4. PASOS PARA IMPLEMENTAR                                                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+✅ Paso 1: Lee los archivos de documentación
+   • GUIA_IMAGENES.md      (explicación detallada)
+   • EJEMPLOS_CODIGO.md    (código listo para copiar/pegar)
+   • ESTRUCTURA_ARCHIVOS.txt (nombres y tamaños)
+
+✅ Paso 2: Prepara tus imágenes
+   • Optimiza el tamaño (comprime en TinyPNG.com)
+   • Asigna nombres según la estructura
+   • Colócalas en: images/hero/, images/mision/, etc.
+
+✅ Paso 3: Abre web_botanica.html en tu editor
+   • Busca los bloques que hay que cambiar (usa Ctrl+F)
+   • Reemplaza usando los ejemplos de EJEMPLOS_CODIGO.md
+   • Guarda el archivo
+
+✅ Paso 4: Verifica en el navegador
+   • Abre web_botanica.html en Chrome/Firefox
+   • Las imágenes deben aparecer en su lugar
+   • Ajusta si es necesario
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 5. BÚSQUEDAS RÁPIDAS (en tu editor con Ctrl+F o Cmd+F)                     │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Para encontrar fácilmente qué reemplazar:
+
+Hero slides:
+  Busca: ".hero-slide:nth-child(1)"
+
+Misión:
+  Busca: ".mision-photo-inner"
+
+Proyecto 1:
+  Busca: "Consolidación de la Amazonía"
+
+Proyecto 2:
+  Busca: "Bosque Andino de Cusco"
+
+Proyecto 3:
+  Busca: "tu titulo del proyecto 3"
+
+Galería:
+  Busca: "galeria-item"
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 6. EJEMPLO DE REEMPLAZO (COPIA Y PEGA)                                      │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+ANTES (línea 244-246):
+    .hero-slide:nth-child(1) {
+      background: linear-gradient(135deg, #0d3b1f 0%, #1a5c35 40%, ...);
+    }
+
+DESPUÉS (línea 244-246):
+    .hero-slide:nth-child(1) {
+      background-image: url('images/hero/slide-1.jpg');
+    }
+
+---
+
+ANTES (línea 1307):
+    <div class="proyecto-visual-bg" style="background: linear-gradient(...);">
+
+DESPUÉS (línea 1307):
+    <div class="proyecto-visual-bg" style="background-image: url('images/proyectos/proyecto-1-main.jpg'); background-size: cover; background-position: center;">
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 7. CHECKLIST FINAL                                                          │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Antes de terminar:
+
+☐ Archivos de guía leídos
+☐ Imágenes preparadas y optimizadas
+☐ Carpetas creadas y pobladas con imágenes
+☐ Hero slides (3 imágenes) - reemplazadas
+☐ Misión (1 imagen) - reemplazada
+☐ Proyecto 1 (4 imágenes) - reemplazadas
+☐ Proyecto 2 (4 imágenes) - reemplazadas
+☐ Proyecto 3 (4 imágenes) - reemplazadas
+☐ Galería (6+ imágenes) - reemplazada
+☐ Archivo guardado
+☐ Verificado en navegador
+
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║                            ¡LISTO PARA EMPEZAR!                           ║
+║                                                                            ║
+║ Archivos en tu proyecto:                                                  ║
+║  • GUIA_IMAGENES.md          (lee primero para entender)                   ║
+║  • EJEMPLOS_CODIGO.md        (copia/pega el código)                       ║
+║  • ESTRUCTURA_ARCHIVOS.txt   (nombres de archivos)                        ║
+║  • RESUMEN_RAPIDO.txt        (este archivo)                               ║
+║                                                                            ║
+║ Carpetas creadas:                                                         ║
+║  • images/hero/                                                           ║
+║  • images/mision/                                                         ║
+║  • images/proyectos/                                                      ║
+║  • images/galeria/                                                        ║
+║                                                                            ║
+║ Próximo paso: Lee GUIA_IMAGENES.md para comenzar                         ║
+╚════════════════════════════════════════════════════════════════════════════╝

@@ -1,0 +1,209 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                                                                            ║
+║                    BIENVENIDO A EMILIANO-CACCIAVILLANI                     ║
+║                                                                            ║
+║              Personalización de Imágenes - Guía Completa                   ║
+║                                                                            ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+
+📚 ARCHIVOS DE GUÍA EN TU PROYECTO
+═════════════════════════════════════════════════════════════════════════════
+
+Hemos creado una documentación completa para personalizar tu sitio con
+imágenes propias. Aquí está todo lo que necesitas:
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  1️⃣ RESUMEN_RAPIDO.txt  (EMPIEZA AQUÍ!)                                    │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  Lectura: 3 minutos                                                       │
+│  Nivel: Principiante                                                      │
+│                                                                             │
+│  ✓ Resumen visual con ASCII art                                           │
+│  ✓ Qué imágenes necesitas                                                 │
+│  ✓ Dónde reemplazar en el HTML                                            │
+│  ✓ Pasos para implementar                                                 │
+│  ✓ Checklist final                                                        │
+│                                                                             │
+│  👉 RECOMENDACIÓN: Comienza por este archivo para entender el proceso     │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  2️⃣ CHEATSHEET.md  (REFERENCIA RÁPIDA)                                      │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  Lectura: 5 minutos                                                       │
+│  Nivel: Principiante/Intermedio                                           │
+│                                                                             │
+│  ✓ Tabla de imágenes necesarias                                           │
+│  ✓ Diferencias antes/después del código (diff)                            │
+│  ✓ Búsquedas rápidas en el editor                                         │
+│  ✓ Patrón general de reemplazo                                            │
+│                                                                             │
+│  👉 RECOMENDACIÓN: Úsalo mientras editas el HTML                          │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  3️⃣ GUIA_IMAGENES.md  (EXPLICACIÓN DETALLADA)                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  Lectura: 15 minutos                                                      │
+│  Nivel: Intermedio                                                        │
+│                                                                             │
+│  ✓ Estructura de carpetas completa                                        │
+│  ✓ Qué cambiar en cada sección                                            │
+│  ✓ Explicación detallada por área                                         │
+│  ✓ Tabla de resumen                                                       │
+│  ✓ Pasos claros para implementar                                          │
+│                                                                             │
+│  👉 RECOMENDACIÓN: Lee esto si necesitas entender todo en profundidad     │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  4️⃣ EJEMPLOS_CODIGO.md  (COPIA Y PEGA)                                     │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  Lectura: 10 minutos (mientras editas)                                    │
+│  Nivel: Principiante                                                      │
+│                                                                             │
+│  ✓ Bloques de código listos para copiar y pegar                           │
+│  ✓ Indicación de líneas exactas (números de línea)                        │
+│  ✓ Comentarios que dicen CAMBIAR DE ESTO / A ESTO                        │
+│  ✓ Ejemplos para cada sección                                             │
+│                                                                             │
+│  👉 RECOMENDACIÓN: Úsalo para editar rápidamente el HTML                  │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  5️⃣ ESTRUCTURA_ARCHIVOS.txt  (NOMBRES Y TAMAÑOS)                           │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  Lectura: 5 minutos                                                       │
+│  Nivel: Principiante                                                      │
+│                                                                             │
+│  ✓ Estructura completa de carpetas con árbol ASCII                        │
+│  ✓ Tamaños recomendados para cada imagen                                  │
+│  ✓ Nombres alternativos (en español)                                      │
+│  ✓ Herramientas para optimizar imágenes                                   │
+│  ✓ Cómo agregar tus imágenes                                              │
+│                                                                             │
+│  👉 RECOMENDACIÓN: Úsalo antes de preparar tus imágenes                   │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║                         ORDEN RECOMENDADO DE LECTURA                       ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+1. Lee RESUMEN_RAPIDO.txt              (entiende el proceso)
+2. Lee ESTRUCTURA_ARCHIVOS.txt         (prepara tus imágenes)
+3. Prepara 28+ imágenes con nombres correctos
+4. Copia imágenes a carpetas images/
+5. Abre web_botanica.html en tu editor
+6. Lee CHEATSHEET.md o EJEMPLOS_CODIGO.md
+7. Reemplaza el código CSS y HTML
+8. Guarda el archivo
+9. Abre en navegador para verificar
+
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║                         ESTRUCTURA DE CARPETAS                            ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+Tu proyecto ya tiene esta estructura lista:
+
+proyecto/
+├── images/
+│   ├── hero/              ← Coloca aquí: slide-1.jpg, slide-2.jpg, slide-3.jpg
+│   ├── mision/            ← Coloca aquí: emiliano.jpg
+│   ├── proyectos/         ← Coloca aquí: 12 imágenes de proyectos
+│   └── galeria/           ← Coloca aquí: 6+ fotos de galería
+│
+├── web_botanica.html      ← Tu archivo HTML principal
+│
+├── LEEME.txt              ← Este archivo (índice)
+├── RESUMEN_RAPIDO.txt     ← Resumen visual
+├── CHEATSHEET.md          ← Referencia rápida
+├── GUIA_IMAGENES.md       ← Explicación detallada
+├── EJEMPLOS_CODIGO.md     ← Código listo para copiar/pegar
+└── ESTRUCTURA_ARCHIVOS.txt ← Nombres y tamaños
+
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║                              IMÁGENES NECESARIAS                          ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+Total: 28 imágenes mínimo
+
+📸 Hero (3):           slide-1.jpg, slide-2.jpg, slide-3.jpg
+📸 Misión (1):         emiliano.jpg
+📸 Proyectos (12):     proyecto-{1,2,3}-main.jpg + proyecto-{1,2,3}-thumb-{1,2,3}.jpg
+📸 Galería (6+):       foto-1.jpg, foto-2.jpg, ... foto-N.jpg
+
+Ver detalles en: ESTRUCTURA_ARCHIVOS.txt
+
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║                           PRÓXIMOS PASOS                                   ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+1. Lee RESUMEN_RAPIDO.txt ahora mismo
+
+2. Abre ESTRUCTURA_ARCHIVOS.txt y prepara tus imágenes:
+   • Optimiza tamaño (comprime en TinyPNG.com)
+   • Asigna nombres correctos
+   • Colócalas en las carpetas images/
+
+3. Abre web_botanica.html con:
+   • Visual Studio Code
+   • Sublime Text
+   • Atom
+   • O cualquier editor de texto
+
+4. Busca y reemplaza usando CHEATSHEET.md o EJEMPLOS_CODIGO.md:
+   • Ctrl+F para buscar
+   • Copia/pega el código nuevo
+
+5. Guarda el archivo (Ctrl+S)
+
+6. Abre web_botanica.html en tu navegador:
+   • Chrome
+   • Firefox
+   • Safari
+   • Edge
+
+7. ¡Verifica que todas las imágenes aparezcan! 🎉
+
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║                               CONTACTO                                     ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+Si tienes dudas:
+
+1. Revisa los archivos de guía nuevamente
+2. Busca en Google el error que recibas
+3. Asegúrate de que:
+   - Las rutas a las imágenes sean correctas
+   - Las imágenes existan en las carpetas
+   - Los nombres de archivos sean exactos
+   - Las comillas en el HTML sean correctas
+
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║                                                                            ║
+║                        ¡COMIENZA AHORA CON                                ║
+║                         RESUMEN_RAPIDO.txt!                               ║
+║                                                                            ║
+╚════════════════════════════════════════════════════════════════════════════╝

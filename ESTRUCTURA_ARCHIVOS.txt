@@ -1,0 +1,170 @@
+ESTRUCTURA DE ARCHIVOS - GUÍA COMPLETA
+=====================================
+
+Tu proyecto debe tener esta estructura después de agregar las imágenes:
+
+proyecto/
+│
+├── images/
+│   │
+│   ├── hero/
+│   │   ├── slide-1.jpg        ← Selva exuberante (1920x1080 aprox)
+│   │   ├── slide-2.jpg        ← Bosque verde (1920x1080 aprox)
+│   │   └── slide-3.jpg        ← Bosque andino (1920x1080 aprox)
+│   │
+│   ├── mision/
+│   │   └── emiliano.jpg       ← Foto de perfil (600x750 aprox, 4:5 ratio)
+│   │
+│   ├── proyectos/
+│   │   ├── proyecto-1-main.jpg       ← Amazonía - imagen principal
+│   │   ├── proyecto-1-thumb-1.jpg    ← Miniatura 1
+│   │   ├── proyecto-1-thumb-2.jpg    ← Miniatura 2
+│   │   ├── proyecto-1-thumb-3.jpg    ← Miniatura 3
+│   │   │
+│   │   ├── proyecto-2-main.jpg       ← Cusco - imagen principal
+│   │   ├── proyecto-2-thumb-1.jpg    ← Miniatura 1
+│   │   ├── proyecto-2-thumb-2.jpg    ← Miniatura 2
+│   │   ├── proyecto-2-thumb-3.jpg    ← Miniatura 3
+│   │   │
+│   │   ├── proyecto-3-main.jpg       ← Tercer proyecto - imagen principal
+│   │   ├── proyecto-3-thumb-1.jpg    ← Miniatura 1
+│   │   ├── proyecto-3-thumb-2.jpg    ← Miniatura 2
+│   │   └── proyecto-3-thumb-3.jpg    ← Miniatura 3
+│   │
+│   └── galeria/
+│       ├── foto-1.jpg         ← Galería foto 1
+│       ├── foto-2.jpg         ← Galería foto 2
+│       ├── foto-3.jpg         ← Galería foto 3
+│       ├── foto-4.jpg         ← Galería foto 4
+│       ├── foto-5.jpg         ← Galería foto 5
+│       ├── foto-6.jpg         ← Galería foto 6
+│       └── foto-N.jpg         ← Agrega más cuantas necesites
+│
+├── web_botanica.html          ← Tu archivo principal (YA EXISTE)
+├── GUIA_IMAGENES.md           ← Guía de personalización
+├── EJEMPLOS_CODIGO.md         ← Ejemplos de código para copiar/pegar
+└── ESTRUCTURA_ARCHIVOS.txt    ← Este archivo
+
+=====================================
+RECOMENDACIONES DE TAMAÑO Y FORMATO
+=====================================
+
+HERO (Sliders):
+- Resolución: 1920x1080 px mínimo
+- Formato: JPG (comprimido, ~200-300 KB)
+- Contenido: Imágenes de naturaleza/bosque a pantalla completa
+
+MISIÓN (Foto perfil):
+- Resolución: 600x750 px (ratio 4:5)
+- Formato: JPG (comprimido, ~100-150 KB)
+- Contenido: Foto de persona en retrato vertical
+
+PROYECTOS:
+- Principal: 1200x800 px (JPG, ~150-250 KB)
+- Miniaturas: 200x150 px (JPG, ~20-30 KB)
+- Contenido: Fotos del proyecto, paisaje, equipos, etc.
+
+GALERÍA:
+- Resolución: Variable (800x600 a 1200x800 px)
+- Formato: JPG (comprimido, ~100-200 KB)
+- Contenido: Fotos diversas del proyecto
+
+=====================================
+NOMBRES ALTERNATIVOS (opcional)
+=====================================
+
+Si prefieres nombres en español, puedes usar:
+
+HERO:
+- selva.jpg
+- bosque-verde.jpg
+- bosque-andino.jpg
+
+MISIÓN:
+- perfil-emiliano.jpg
+- fundador.jpg
+- retrato.jpg
+
+PROYECTOS:
+- amazonia-principal.jpg
+- amazonia-thumb-1.jpg
+- cusco-principal.jpg
+- cusco-thumb-1.jpg
+- etc.
+
+GALERÍA:
+- galeria-paisaje-1.jpg
+- galeria-equipo-1.jpg
+- galeria-voluntarios.jpg
+- etc.
+
+⚠️ IMPORTANTE: Si cambias los nombres, asegúrate de actualizar
+las URLs en el HTML (en los reemplazos que hiciste).
+
+=====================================
+CÓMO AGREGAR TUS IMÁGENES
+=====================================
+
+Opción 1: Via Explorador de Archivos
+1. Abre el explorador de archivos de tu computadora
+2. Ve a: Mi PC → [Ubicación del proyecto] → images/
+3. Crea las carpetas (hero, mision, proyectos, galeria)
+4. Copia tus imágenes en las carpetas correspondientes
+
+Opción 2: Arrastra y Suelta (en algunos editores)
+1. Abre el proyecto en tu editor de código
+2. Arrastra las imágenes a las carpetas en la sección de archivos
+
+Opción 3: Terminal/Línea de Comandos
+# Ejemplo para copiar imágenes en macOS/Linux:
+cp ~/Descargas/selva.jpg ./images/hero/slide-1.jpg
+cp ~/Descargas/bosque.jpg ./images/hero/slide-2.jpg
+# etc.
+
+=====================================
+VERIFICAR RUTAS
+=====================================
+
+Después de agregar las imágenes, verifica que puedas acceder:
+- images/hero/slide-1.jpg ✓
+- images/mision/emiliano.jpg ✓
+- images/proyectos/proyecto-1-main.jpg ✓
+- images/galeria/foto-1.jpg ✓
+
+Si tus imágenes están en subcarpetas adicionales, actualiza las rutas
+en el HTML. Por ejemplo, si la estructura es:
+  images/proyectos/amazonias/proyecto-1-main.jpg
+
+Entonces en HTML debe ser:
+  background-image: url('images/proyectos/amazonias/proyecto-1-main.jpg');
+
+=====================================
+HERRAMIENTAS PARA OPTIMIZAR IMÁGENES
+=====================================
+
+Antes de subir, considera optimizar:
+
+Online (gratuito):
+- Tinypng.com - Comprime PNG/JPG
+- Imageoptim.com - Optimización general
+- Squoosh.app - Google herramienta
+
+Localmente (programas):
+- ImageOptim (macOS)
+- FileOptimizer (Windows)
+- ImageMagick (línea de comandos)
+
+=====================================
+PRÓXIMOS PASOS
+=====================================
+
+1. Lee GUIA_IMAGENES.md (explicación completa)
+2. Lee EJEMPLOS_CODIGO.md (código listo para copiar/pegar)
+3. Crea las carpetas en images/
+4. Copia tus imágenes en las carpetas
+5. Abre web_botanica.html en tu editor
+6. Reemplaza el código CSS y HTML según EJEMPLOS_CODIGO.md
+7. Guarda el archivo
+8. Abre en navegador y verifica que las imágenes aparezcan
+
+¡Listo! 🌿
