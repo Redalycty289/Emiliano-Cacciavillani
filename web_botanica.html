@@ -1,0 +1,2452 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Emiliano Vargas — Biólogo y fundador de Raíces Vivas. Conservación de ecosistemas y biodiversidad en Perú. Únete como voluntario, donante o aliado institucional." />
+  <meta name="theme-color" content="#1a3a2a" />
+  <title>Emiliano Vargas · Raíces Vivas</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── TOKENS ─────────────────────────────────────────────── */
+    :root {
+      --green-950: #0d1f17;
+      --green-900: #132a1e;
+      --green-800: #1a3a2a;
+      --green-700: #245238;
+      --green-600: #2e6b47;
+      --green-500: #3a8558;
+      --green-400: #52a670;
+      --green-300: #7dc494;
+      --green-200: #b0dbbf;
+      --green-100: #d8f0e2;
+      --green-50:  #eef8f2;
+
+      --earth-900: #2c1a0e;
+      --earth-800: #3d2512;
+      --earth-700: #5c3a1e;
+      --earth-600: #7a4e2d;
+      --earth-500: #9a6340;
+      --earth-400: #b87c55;
+      --earth-300: #d09b78;
+      --earth-200: #e8c4a8;
+      --earth-100: #f4e2d0;
+      --earth-50:  #faf3ec;
+
+      --cream: #f7f3ee;
+      --ink:   #1a1a16;
+      --ink-2: #3a3a30;
+      --ink-3: #6b6b58;
+      --ink-4: #9a9a82;
+      --white: #ffffff;
+
+      --ff-display: 'Playfair Display', Georgia, serif;
+      --ff-body:    'DM Sans', system-ui, sans-serif;
+      --ff-mono:    'DM Mono', monospace;
+
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --radius-xl: 32px;
+
+      --shadow-sm: 0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.06);
+      --shadow-md: 0 4px 16px rgba(0,0,0,.12), 0 2px 6px rgba(0,0,0,.08);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,.18), 0 4px 12px rgba(0,0,0,.1);
+      --shadow-green: 0 8px 32px rgba(42,104,69,.25);
+
+      --nav-h: 68px;
+      --section-pad: clamp(4rem, 8vw, 7rem);
+      --container: 1220px;
+
+      /* z-index scale */
+      --z-base:    1;
+      --z-sticky:  100;
+      --z-overlay: 200;
+      --z-modal:   300;
+      --z-toast:   400;
+    }
+
+    /* ─── RESET ──────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: var(--ff-body);
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    ul, ol { list-style: none; }
+    h1,h2,h3,h4,h5 { font-family: var(--ff-display); line-height: 1.15; text-wrap: balance; }
+    p { text-wrap: pretty; max-width: 65ch; }
+
+    /* ─── UTILITY ────────────────────────────────────────────── */
+    .container { width: min(100%, var(--container)); margin-inline: auto; padding-inline: clamp(1.25rem, 4vw, 3rem); }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .75rem 1.75rem; border-radius: 100px;
+      font-family: var(--ff-body); font-size: .9rem; font-weight: 500; letter-spacing: .02em;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      cursor: pointer; white-space: nowrap;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+    .btn-primary {
+      background: var(--green-600); color: var(--white);
+      box-shadow: var(--shadow-green);
+    }
+    .btn-primary:hover { background: var(--green-500); box-shadow: 0 12px 40px rgba(42,104,69,.35); }
+    .btn-outline {
+      background: transparent; color: var(--white);
+      border: 1.5px solid rgba(255,255,255,.5);
+    }
+    .btn-outline:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.8); }
+    .btn-outline-dark {
+      background: transparent; color: var(--green-700);
+      border: 1.5px solid var(--green-300);
+    }
+    .btn-outline-dark:hover { background: var(--green-50); }
+    .btn-earth {
+      background: var(--earth-600); color: var(--white);
+    }
+    .btn-earth:hover { background: var(--earth-500); }
+
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: .5rem;
+      font-family: var(--ff-mono); font-size: .75rem; font-weight: 400;
+      letter-spacing: .12em; text-transform: uppercase; color: var(--green-500);
+    }
+    .eyebrow::before {
+      content: ''; display: block; width: 24px; height: 1px; background: var(--green-400);
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 900;
+      color: var(--green-900); letter-spacing: -.02em;
+      margin-top: .75rem;
+    }
+    .section-title span { color: var(--green-500); font-style: italic; }
+    .section-lead { font-size: 1.1rem; color: var(--ink-3); margin-top: 1rem; }
+
+    /* ─── NAVBAR ─────────────────────────────────────────────── */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: var(--z-sticky);
+      height: var(--nav-h);
+      display: flex; align-items: center;
+      transition: background .3s ease, backdrop-filter .3s ease, box-shadow .3s ease;
+    }
+    #navbar.scrolled {
+      background: rgba(13,31,23,.92);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 rgba(255,255,255,.06);
+    }
+    .nav-inner {
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: .75rem;
+    }
+    .nav-logo-mark {
+      width: 38px; height: 38px; border-radius: 10px;
+      background: var(--green-600);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nav-logo-mark svg { width: 22px; height: 22px; }
+    .nav-logo-text { line-height: 1.1; }
+    .nav-logo-text strong {
+      display: block; font-family: var(--ff-display); font-size: 1rem; font-weight: 700;
+      color: var(--white); letter-spacing: -.01em;
+    }
+    .nav-logo-text span {
+      display: block; font-size: .7rem; color: var(--green-300); letter-spacing: .08em; text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 1.75rem;
+    }
+    .nav-links a {
+      font-size: .88rem; font-weight: 400; color: rgba(255,255,255,.75);
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      display: flex; align-items: center; gap: .75rem;
+    }
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px; padding: 4px;
+    }
+    .hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--white); border-radius: 2px;
+      transition: transform .3s, opacity .3s;
+    }
+    .mobile-nav {
+      display: none; position: fixed; inset: 0; z-index: var(--z-overlay);
+      background: var(--green-950);
+      flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
+      opacity: 0; pointer-events: none; transition: opacity .3s;
+    }
+    .mobile-nav.open { display: flex; opacity: 1; pointer-events: all; }
+    .mobile-nav a {
+      font-family: var(--ff-display); font-size: 2rem; font-weight: 700;
+      color: var(--white); transition: color .2s;
+    }
+    .mobile-nav a:hover { color: var(--green-300); }
+    .mobile-close {
+      position: absolute; top: 1.5rem; right: 1.5rem;
+      font-size: 1.5rem; color: var(--white); background: none; border: none;
+      cursor: pointer; padding: .5rem;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links, .nav-cta .btn-outline { display: none; }
+      .hamburger { display: flex; }
+    }
+
+    /* ─── HERO ───────────────────────────────────────────────── */
+    #hero {
+      position: relative; min-height: 100svh;
+      display: flex; align-items: flex-end;
+      overflow: hidden;
+    }
+    #hero-canvas {
+      position: absolute; inset: 0; z-index: 0;
+    }
+    .hero-slides {
+      position: absolute; inset: 0; z-index: 0;
+    }
+    .hero-slide {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      opacity: 0; transition: opacity 1.2s ease;
+    }
+    .hero-slide.active { opacity: 1; }
+    .hero-slide::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(13,31,23,.92) 0%,
+        rgba(13,31,23,.55) 40%,
+        rgba(13,31,23,.25) 70%,
+        rgba(13,31,23,.1) 100%
+      );
+    }
+    /* Placeholder slides with gradient backgrounds */
+    .hero-slide:nth-child(1) {
+      background: linear-gradient(135deg, #0d3b1f 0%, #1a5c35 40%, #2d8050 80%, #1a3a2a 100%);
+    }
+    .hero-slide:nth-child(2) {
+      background: linear-gradient(135deg, #1a2e10 0%, #2d5a1e 40%, #4a8030 80%, #1f3b15 100%);
+    }
+    .hero-slide:nth-child(3) {
+      background: linear-gradient(135deg, #2c1a0e 0%, #5c3a1e 40%, #8a5530 80%, #3d2512 100%);
+    }
+
+    /* SVG Nature illustrations inside slides */
+    .hero-nature-art {
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      opacity: .35;
+    }
+
+    .hero-content {
+      position: relative; z-index: 2;
+      width: 100%; padding-bottom: clamp(3rem, 6vw, 5rem);
+    }
+    .hero-inner {
+      display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 3rem;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: rgba(82,166,112,.2); border: 1px solid rgba(82,166,112,.3);
+      color: var(--green-200); font-size: .75rem; font-family: var(--ff-mono);
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: .35rem .9rem; border-radius: 100px;
+      backdrop-filter: blur(8px);
+      margin-bottom: 1.25rem;
+    }
+    .hero-tag::before {
+      content: ''; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--green-400); animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: .5; transform: scale(1.5); }
+    }
+    .hero-headline {
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 900; color: var(--white);
+      letter-spacing: -.03em; line-height: 1.05;
+      margin-bottom: 1.25rem;
+    }
+    .hero-headline em {
+      font-style: italic; color: var(--green-300);
+      display: block;
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 1.8vw, 1.2rem); color: rgba(255,255,255,.75);
+      max-width: 52ch; margin-bottom: 2rem; line-height: 1.7;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+    .hero-stats {
+      display: flex; flex-direction: column; gap: 1.25rem;
+      align-items: flex-end;
+    }
+    .hero-stat {
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(12px); border-radius: var(--radius-md);
+      padding: 1rem 1.4rem; text-align: right; min-width: 130px;
+    }
+    .hero-stat-num {
+      font-family: var(--ff-display); font-size: 2rem; font-weight: 900;
+      color: var(--white); line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: .75rem; color: var(--green-300); letter-spacing: .06em;
+      text-transform: uppercase; margin-top: .2rem;
+    }
+    .hero-dots {
+      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+      z-index: 3; display: flex; gap: .5rem;
+    }
+    .hero-dot {
+      width: 8px; height: 8px; border-radius: 100px;
+      background: rgba(255,255,255,.3); cursor: pointer;
+      transition: width .3s, background .3s;
+    }
+    .hero-dot.active { width: 24px; background: var(--green-400); }
+
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-stats { flex-direction: row; align-items: flex-start; }
+      .hero-stat { min-width: 100px; }
+    }
+
+    /* ─── MISION ─────────────────────────────────────────────── */
+    #mision {
+      background: var(--green-900);
+      padding: var(--section-pad) 0;
+      position: relative; overflow: hidden;
+    }
+    #mision::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 1px; background: linear-gradient(90deg, transparent, var(--green-600), transparent);
+    }
+    .mision-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+    }
+    .mision-visual {
+      position: relative;
+    }
+    .mision-photo-frame {
+      border-radius: var(--radius-lg); overflow: hidden;
+      aspect-ratio: 4/5;
+      background: var(--green-800);
+      position: relative;
+    }
+    .mision-photo-inner {
+      width: 100%; height: 100%;
+      background: linear-gradient(160deg, var(--green-700) 0%, var(--green-900) 60%, var(--earth-800) 100%);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .mision-photo-badge {
+      position: absolute; bottom: -1.5rem; right: -1.5rem;
+      background: var(--earth-600); color: var(--white);
+      padding: 1.25rem 1.5rem; border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg); z-index: 2;
+    }
+    .mision-photo-badge strong {
+      display: block; font-family: var(--ff-display); font-size: 1.8rem; font-weight: 900;
+      line-height: 1;
+    }
+    .mision-photo-badge span {
+      font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; opacity: .85;
+    }
+    .mision-values {
+      display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2.5rem;
+    }
+    .mision-value {
+      display: flex; align-items: flex-start; gap: 1rem;
+    }
+    .mision-value-icon {
+      width: 44px; height: 44px; border-radius: var(--radius-sm);
+      background: var(--green-700); color: var(--green-300);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      font-size: 1.2rem;
+    }
+    .mision-value-text h4 {
+      font-family: var(--ff-body); font-size: .95rem; font-weight: 500;
+      color: var(--white); margin-bottom: .25rem;
+    }
+    .mision-value-text p {
+      font-size: .875rem; color: var(--green-200); opacity: .8;
+    }
+    .mision-text .section-title { color: var(--white); }
+    .mision-text .section-title span { color: var(--green-300); }
+    .mision-text .section-lead { color: var(--green-100); opacity: .85; }
+    .mision-blockquote {
+      margin-top: 2rem; padding: 1.5rem;
+      border-left: 3px solid var(--green-500);
+      background: rgba(255,255,255,.04);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+    .mision-blockquote p {
+      font-family: var(--ff-display); font-style: italic;
+      font-size: 1.15rem; color: var(--green-100);
+    }
+    .mision-blockquote cite {
+      display: block; margin-top: .75rem;
+      font-size: .8rem; color: var(--green-400); letter-spacing: .06em; text-transform: uppercase;
+    }
+    @media (max-width: 900px) {
+      .mision-grid { grid-template-columns: 1fr; }
+      .mision-photo-frame { aspect-ratio: 16/9; }
+    }
+
+    /* ─── PROYECTOS ──────────────────────────────────────────── */
+    #proyectos {
+      padding: var(--section-pad) 0;
+      background: var(--cream);
+    }
+    .proyectos-header {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem;
+    }
+    .proyectos-list { display: flex; flex-direction: column; gap: 0; }
+
+    .proyecto-card {
+      display: grid; grid-template-columns: 1fr 1fr;
+      min-height: 540px; border-radius: var(--radius-xl);
+      overflow: hidden; box-shadow: var(--shadow-lg);
+      margin-bottom: 2rem;
+      transition: transform .4s ease;
+    }
+    .proyecto-card:hover { transform: translateY(-4px); }
+    .proyecto-card:nth-child(even) .proyecto-visual { order: 2; }
+    .proyecto-card:nth-child(even) .proyecto-info  { order: 1; }
+
+    .proyecto-visual {
+      position: relative; overflow: hidden; min-height: 400px;
+    }
+    .proyecto-visual-bg {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      transition: transform .6s ease;
+    }
+    .proyecto-card:hover .proyecto-visual-bg { transform: scale(1.04); }
+    .proyecto-visual-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(0,0,0,.3) 0%, transparent 60%);
+    }
+    .proyecto-visual-tag {
+      position: absolute; top: 1.5rem; left: 1.5rem;
+      background: rgba(255,255,255,.15); backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,.25);
+      color: var(--white); font-size: .75rem; font-family: var(--ff-mono);
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: .35rem .85rem; border-radius: 100px;
+    }
+    .proyecto-gallery-strip {
+      position: absolute; bottom: 1rem; left: 1rem; right: 1rem;
+      display: flex; gap: .5rem;
+    }
+    .gallery-thumb {
+      width: 52px; height: 40px; border-radius: 6px;
+      border: 2px solid rgba(255,255,255,.4);
+      background: rgba(255,255,255,.15); cursor: pointer;
+      transition: border-color .2s, transform .2s;
+      overflow: hidden; flex-shrink: 0;
+    }
+    .gallery-thumb:hover { border-color: var(--white); transform: scale(1.05); }
+    .gallery-thumb-inner { width: 100%; height: 100%; }
+
+    .proyecto-info {
+      background: var(--white); padding: 3rem 2.5rem;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .proyecto-meta {
+      display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;
+    }
+    .proyecto-location {
+      font-size: .78rem; color: var(--ink-3); display: flex; align-items: center; gap: .3rem;
+    }
+    .proyecto-status {
+      font-size: .75rem; font-family: var(--ff-mono); letter-spacing: .06em; text-transform: uppercase;
+      padding: .25rem .65rem; border-radius: 100px;
+    }
+    .proyecto-status.activo { background: var(--green-100); color: var(--green-700); }
+    .proyecto-status.completado { background: var(--earth-100); color: var(--earth-700); }
+    .proyecto-name {
+      font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 900;
+      color: var(--green-900); letter-spacing: -.02em; margin-bottom: .75rem;
+    }
+    .proyecto-desc {
+      font-size: .95rem; color: var(--ink-3); line-height: 1.75; margin-bottom: 1.5rem;
+    }
+    .proyecto-impact-bar {
+      display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.75rem;
+    }
+    .impact-chip {
+      display: flex; align-items: center; gap: .5rem;
+      background: var(--green-50); border: 1px solid var(--green-200);
+      border-radius: var(--radius-sm); padding: .5rem .85rem;
+    }
+    .impact-chip-icon { font-size: 1rem; }
+    .impact-chip-val {
+      font-family: var(--ff-display); font-size: 1.1rem; font-weight: 700;
+      color: var(--green-700); line-height: 1;
+    }
+    .impact-chip-label { font-size: .72rem; color: var(--ink-3); }
+
+    .proyecto-testimonial {
+      background: var(--earth-50); border-left: 3px solid var(--earth-400);
+      padding: 1rem 1.25rem; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin-bottom: 1.75rem;
+    }
+    .proyecto-testimonial p {
+      font-family: var(--ff-display); font-style: italic;
+      font-size: .9rem; color: var(--ink-2);
+    }
+    .proyecto-testimonial cite {
+      display: block; margin-top: .5rem;
+      font-size: .75rem; color: var(--earth-600);
+    }
+    .proyecto-actions { display: flex; gap: .75rem; flex-wrap: wrap; }
+
+    /* Logro/reconocimiento entre proyectos */
+    .proyecto-logro {
+      display: flex; align-items: center; justify-content: center; gap: 1.5rem;
+      background: var(--green-800); color: var(--white);
+      border-radius: var(--radius-lg); padding: 1.75rem 2.5rem;
+      margin-bottom: 2rem;
+    }
+    .logro-icon {
+      font-size: 2rem; opacity: .9;
+    }
+    .logro-text h4 {
+      font-family: var(--ff-body); font-weight: 500; font-size: .95rem;
+      color: var(--green-200); letter-spacing: .04em; text-transform: uppercase;
+      margin-bottom: .25rem;
+    }
+    .logro-text p {
+      font-family: var(--ff-display); font-style: italic;
+      font-size: 1.1rem; color: var(--white);
+    }
+
+    /* Testimonios globales */
+    .testimonios-section {
+      margin-top: 4rem;
+    }
+    .testimonios-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem; margin-top: 2rem;
+    }
+    .testimonio-card {
+      background: var(--white); border-radius: var(--radius-lg);
+      padding: 2rem; box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0,0,0,.05);
+    }
+    .testimonio-stars { color: var(--earth-500); font-size: 1rem; margin-bottom: .75rem; }
+    .testimonio-text {
+      font-family: var(--ff-display); font-style: italic;
+      font-size: 1rem; color: var(--ink-2); line-height: 1.6; margin-bottom: 1rem;
+    }
+    .testimonio-author { display: flex; align-items: center; gap: .75rem; }
+    .testimonio-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--green-200); display: flex; align-items: center; justify-content: center;
+      font-family: var(--ff-body); font-weight: 500; font-size: .85rem; color: var(--green-800);
+      flex-shrink: 0;
+    }
+    .testimonio-name { font-weight: 500; font-size: .9rem; color: var(--ink); }
+    .testimonio-role { font-size: .78rem; color: var(--ink-3); }
+
+    @media (max-width: 900px) {
+      .proyecto-card { grid-template-columns: 1fr; }
+      .proyecto-card:nth-child(even) .proyecto-visual { order: 1; }
+      .proyecto-card:nth-child(even) .proyecto-info { order: 2; }
+      .proyecto-visual { min-height: 280px; }
+      .proyecto-info { padding: 2rem 1.5rem; }
+    }
+
+    /* ─── QUIEN SOY ──────────────────────────────────────────── */
+    #quien-soy {
+      background: var(--green-950);
+      padding: var(--section-pad) 0;
+      position: relative; overflow: hidden;
+    }
+    .quien-soy-grid {
+      display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start;
+    }
+    .quien-foto-stack {
+      position: relative;
+    }
+    .quien-foto-main {
+      border-radius: var(--radius-xl); overflow: hidden;
+      aspect-ratio: 3/4;
+      background: linear-gradient(160deg, var(--green-700) 0%, var(--green-900) 50%, var(--earth-800) 100%);
+      position: relative;
+    }
+    .quien-foto-main-inner {
+      width: 100%; height: 100%;
+      display: flex; align-items: flex-end; justify-content: flex-start;
+      padding: 2rem;
+    }
+    .quien-foto-overlay {
+      background: rgba(13,31,23,.7); backdrop-filter: blur(4px);
+      border-radius: var(--radius-md); padding: 1rem 1.25rem;
+    }
+    .quien-foto-overlay p {
+      color: var(--white); font-weight: 500; font-size: .9rem;
+    }
+    .quien-foto-overlay span {
+      color: var(--green-300); font-size: .78rem;
+    }
+    .quien-foto-accent {
+      position: absolute; top: -1.5rem; right: -1.5rem;
+      width: 140px; height: 140px; border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--earth-700), var(--earth-500));
+      border: 4px solid var(--green-950);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .quien-foto-accent svg { width: 60px; height: 60px; opacity: .7; }
+    .quien-credenciales {
+      display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 2rem;
+    }
+    .credencial-chip {
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1);
+      color: var(--green-200); font-size: .75rem; font-family: var(--ff-mono);
+      padding: .35rem .8rem; border-radius: 100px;
+    }
+    .quien-text .section-title { color: var(--white); }
+    .quien-text .section-title span { color: var(--green-300); }
+    .quien-bio {
+      color: var(--green-100); opacity: .85; font-size: 1rem; line-height: 1.8;
+      margin-top: 1.25rem;
+    }
+    .quien-bio + .quien-bio { margin-top: 1rem; }
+    .quien-timeline {
+      margin-top: 2.5rem; display: flex; flex-direction: column; gap: .25rem;
+    }
+    .quien-timeline-item {
+      display: grid; grid-template-columns: 80px 1fr;
+      gap: 1rem; padding: 1rem 0;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      align-items: start;
+    }
+    .quien-timeline-year {
+      font-family: var(--ff-mono); font-size: .8rem; color: var(--green-400);
+      padding-top: .1rem;
+    }
+    .quien-timeline-title {
+      font-weight: 500; font-size: .95rem; color: var(--white); margin-bottom: .2rem;
+    }
+    .quien-timeline-sub {
+      font-size: .82rem; color: var(--green-300); opacity: .8;
+    }
+    .quien-filosofia {
+      margin-top: 2rem; padding: 1.5rem;
+      background: rgba(82,166,112,.1); border: 1px solid rgba(82,166,112,.2);
+      border-radius: var(--radius-md);
+    }
+    .quien-filosofia p {
+      font-family: var(--ff-display); font-style: italic;
+      font-size: 1.1rem; color: var(--green-100); max-width: none;
+    }
+    @media (max-width: 900px) {
+      .quien-soy-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .quien-foto-main { aspect-ratio: 16/9; }
+    }
+
+    /* ─── GALERÍA ────────────────────────────────────────────── */
+    #galeria {
+      padding: var(--section-pad) 0;
+      background: var(--white);
+    }
+    .galeria-filter {
+      display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 2rem; margin-bottom: 2rem;
+    }
+    .galeria-btn {
+      padding: .45rem 1.1rem; border-radius: 100px;
+      font-size: .82rem; font-weight: 500;
+      border: 1.5px solid var(--green-200); color: var(--ink-3);
+      transition: all .2s; cursor: pointer; background: transparent;
+    }
+    .galeria-btn.active, .galeria-btn:hover {
+      background: var(--green-700); border-color: var(--green-700); color: var(--white);
+    }
+    .masonry-grid {
+      columns: 4 200px; gap: 1rem;
+    }
+    .masonry-item {
+      break-inside: avoid; margin-bottom: 1rem;
+      border-radius: var(--radius-md); overflow: hidden;
+      position: relative; cursor: pointer;
+    }
+    .masonry-item-inner {
+      width: 100%; display: block;
+      transition: transform .4s ease;
+    }
+    .masonry-item:hover .masonry-item-inner { transform: scale(1.03); }
+    .masonry-placeholder {
+      width: 100%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--ff-mono); font-size: .7rem; color: rgba(255,255,255,.5);
+      text-transform: uppercase; letter-spacing: .1em;
+    }
+    .masonry-item-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(13,31,23,.8) 0%, transparent 50%);
+      opacity: 0; transition: opacity .3s;
+      display: flex; align-items: flex-end; padding: 1rem;
+    }
+    .masonry-item:hover .masonry-item-overlay { opacity: 1; }
+    .masonry-item-label {
+      font-size: .75rem; color: var(--white); font-family: var(--ff-mono);
+      text-transform: uppercase; letter-spacing: .08em;
+    }
+
+    /* ─── APORTA / PARTICIPA ─────────────────────────────────── */
+    #aporta {
+      padding: var(--section-pad) 0;
+      background: var(--green-900);
+    }
+    .aporta-tabs {
+      display: flex; gap: .5rem; margin-top: 2.5rem; margin-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+    .aporta-tab {
+      padding: .75rem 1.5rem; font-size: .9rem; font-weight: 500;
+      color: rgba(255,255,255,.55); border-bottom: 2px solid transparent;
+      cursor: pointer; transition: color .2s, border-color .2s;
+      margin-bottom: -1px;
+    }
+    .aporta-tab.active { color: var(--white); border-bottom-color: var(--green-400); }
+    .aporta-tab:hover { color: rgba(255,255,255,.85); }
+    .aporta-panel { display: none; }
+    .aporta-panel.active { display: block; }
+
+    /* Voluntariado */
+    .voluntariado-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;
+    }
+    .actividades-list { display: flex; flex-direction: column; gap: 1rem; }
+    .actividad-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07);
+      border-radius: var(--radius-md); padding: 1.25rem;
+    }
+    .actividad-icon {
+      width: 44px; height: 44px; border-radius: var(--radius-sm);
+      background: var(--green-700); display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .actividad-title { font-weight: 500; color: var(--white); font-size: .95rem; margin-bottom: .25rem; }
+    .actividad-desc { font-size: .82rem; color: var(--green-200); opacity: .75; }
+    .beneficios-list {
+      display: flex; flex-direction: column; gap: .75rem; margin: 1.5rem 0;
+    }
+    .beneficio {
+      display: flex; align-items: center; gap: .75rem;
+      color: var(--green-100); font-size: .9rem;
+    }
+    .beneficio::before {
+      content: '✓'; display: flex; align-items: center; justify-content: center;
+      width: 20px; height: 20px; border-radius: 50%;
+      background: var(--green-700); color: var(--green-300); font-size: .7rem; flex-shrink: 0;
+    }
+    .disponibilidad-chips {
+      display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0 1.5rem;
+    }
+    .dispon-chip {
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
+      color: var(--green-200); font-size: .78rem; padding: .3rem .8rem; border-radius: 100px;
+    }
+    /* Form styles */
+    .form-group { margin-bottom: 1.25rem; }
+    .form-label {
+      display: block; font-size: .82rem; font-weight: 500;
+      color: var(--green-200); margin-bottom: .4rem; letter-spacing: .02em;
+    }
+    .form-input, .form-select, .form-textarea {
+      width: 100%; background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12); color: var(--white);
+      border-radius: var(--radius-sm); padding: .75rem 1rem;
+      font-family: var(--ff-body); font-size: .9rem;
+      transition: border-color .2s, background .2s;
+      outline: none;
+    }
+    .form-input::placeholder, .form-textarea::placeholder { color: rgba(255,255,255,.3); }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--green-400); background: rgba(255,255,255,.09);
+    }
+    .form-select option { background: var(--green-900); }
+    .form-textarea { resize: vertical; min-height: 100px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-section-title {
+      font-family: var(--ff-body); font-weight: 500; font-size: 1rem;
+      color: var(--white); margin-bottom: 1.25rem;
+    }
+
+    /* Empresas */
+    .empresas-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2.5rem;
+    }
+    .empresa-card {
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07);
+      border-radius: var(--radius-md); padding: 1.5rem;
+    }
+    .empresa-card-icon {
+      font-size: 1.8rem; margin-bottom: .75rem;
+    }
+    .empresa-card-title {
+      font-weight: 500; color: var(--white); font-size: .95rem; margin-bottom: .5rem;
+    }
+    .empresa-card-desc { font-size: .82rem; color: var(--green-200); opacity: .75; }
+
+    /* Difusión */
+    .difusion-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;
+    }
+    .difusion-card {
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07);
+      border-radius: var(--radius-md); padding: 2rem 1.5rem; text-align: center;
+    }
+    .difusion-icon {
+      font-size: 2rem; margin-bottom: 1rem;
+    }
+    .difusion-title { font-weight: 500; color: var(--white); font-size: .95rem; margin-bottom: .5rem; }
+    .difusion-desc { font-size: .82rem; color: var(--green-200); opacity: .75; margin-bottom: 1rem; }
+
+    @media (max-width: 768px) {
+      .voluntariado-grid { grid-template-columns: 1fr; }
+      .empresas-grid { grid-template-columns: 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ─── DONACIONES ─────────────────────────────────────────── */
+    #donaciones {
+      padding: var(--section-pad) 0;
+      background: var(--cream);
+    }
+    .donaciones-grid {
+      display: grid; grid-template-columns: 1.1fr 1fr; gap: 4rem; align-items: start;
+    }
+    .donacion-amounts {
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin: 2rem 0;
+    }
+    .amount-card {
+      background: var(--white); border: 2px solid var(--green-200);
+      border-radius: var(--radius-md); padding: 1.5rem 1rem; text-align: center;
+      cursor: pointer; transition: all .25s;
+    }
+    .amount-card:hover, .amount-card.selected {
+      border-color: var(--green-500); background: var(--green-50);
+      box-shadow: var(--shadow-green);
+      transform: translateY(-2px);
+    }
+    .amount-card.featured {
+      border-color: var(--earth-400); background: var(--earth-50);
+    }
+    .amount-card.featured:hover, .amount-card.featured.selected {
+      border-color: var(--earth-600); background: var(--earth-50);
+    }
+    .amount-val {
+      font-family: var(--ff-display); font-size: 1.8rem; font-weight: 900;
+      color: var(--green-800); line-height: 1;
+    }
+    .amount-desc {
+      font-size: .78rem; color: var(--ink-3); margin-top: .5rem; line-height: 1.4;
+    }
+    .donacion-custom {
+      display: flex; gap: .75rem; align-items: center; margin-bottom: 2rem;
+    }
+    .donacion-custom-input {
+      flex: 1; background: var(--white); border: 2px solid var(--green-200);
+      border-radius: var(--radius-sm); padding: .75rem 1rem;
+      font-family: var(--ff-display); font-size: 1.3rem; font-weight: 700; color: var(--green-800);
+      outline: none;
+    }
+    .donacion-custom-input:focus { border-color: var(--green-500); }
+    .donacion-methods {
+      display: flex; flex-wrap: wrap; gap: .75rem; margin-bottom: 2rem;
+    }
+    .method-badge {
+      display: flex; align-items: center; gap: .5rem;
+      background: var(--white); border: 1.5px solid var(--green-200);
+      border-radius: var(--radius-sm); padding: .6rem 1rem;
+      font-size: .85rem; font-weight: 500; color: var(--ink-2);
+      cursor: pointer; transition: all .2s;
+    }
+    .method-badge.active, .method-badge:hover {
+      border-color: var(--green-500); background: var(--green-50); color: var(--green-700);
+    }
+    .method-icon { font-size: 1.1rem; }
+    .donacion-info-box {
+      background: var(--white); border-radius: var(--radius-lg);
+      padding: 2rem; box-shadow: var(--shadow-md);
+    }
+    .donacion-info-title {
+      font-family: var(--ff-body); font-weight: 500; color: var(--ink);
+      margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--green-100);
+    }
+    .transparency-item {
+      display: flex; align-items: center; gap: 1rem; padding: .75rem 0;
+      border-bottom: 1px solid rgba(0,0,0,.05);
+    }
+    .transparency-item:last-child { border-bottom: none; }
+    .transparency-pct {
+      font-family: var(--ff-display); font-size: 1.4rem; font-weight: 900;
+      color: var(--green-700); min-width: 56px;
+    }
+    .transparency-bar-wrap {
+      flex: 1;
+    }
+    .transparency-label { font-size: .82rem; color: var(--ink-3); margin-bottom: .3rem; }
+    .transparency-bar {
+      height: 6px; background: var(--green-100); border-radius: 100px; overflow: hidden;
+    }
+    .transparency-bar-fill {
+      height: 100%; background: var(--green-500); border-radius: 100px;
+      transition: width 1.5s ease;
+    }
+    @media (max-width: 900px) {
+      .donaciones-grid { grid-template-columns: 1fr; }
+      .donacion-amounts { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .donacion-amounts { grid-template-columns: 1fr; }
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    #footer {
+      background: var(--green-950);
+      padding: 4rem 0 2rem;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    .footer-brand-name {
+      font-family: var(--ff-display); font-size: 1.5rem; font-weight: 900;
+      color: var(--white); margin-bottom: .25rem;
+    }
+    .footer-brand-sub {
+      font-size: .8rem; color: var(--green-400); letter-spacing: .06em;
+      text-transform: uppercase; margin-bottom: 1rem;
+    }
+    .footer-brand-desc {
+      font-size: .875rem; color: var(--green-200); opacity: .75; line-height: 1.7; margin-bottom: 1.5rem;
+    }
+    .footer-socials { display: flex; gap: .75rem; }
+    .footer-social {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--green-300); font-size: .9rem;
+      transition: background .2s, color .2s; text-decoration: none;
+    }
+    .footer-social:hover { background: var(--green-700); color: var(--white); }
+    .footer-col-title {
+      font-family: var(--ff-body); font-weight: 500; font-size: .85rem;
+      color: var(--white); letter-spacing: .06em; text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+    .footer-links { display: flex; flex-direction: column; gap: .6rem; }
+    .footer-links a {
+      font-size: .875rem; color: var(--green-200); opacity: .7; transition: opacity .2s, color .2s;
+    }
+    .footer-links a:hover { opacity: 1; color: var(--green-300); }
+    .footer-contact-item {
+      display: flex; align-items: flex-start; gap: .5rem;
+      font-size: .875rem; color: var(--green-200); opacity: .7; margin-bottom: .6rem;
+    }
+    .footer-contact-icon { margin-top: .1rem; opacity: .7; }
+    .footer-bottom {
+      padding-top: 2rem; border-top: 1px solid rgba(255,255,255,.06);
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: gap;
+      gap: 1rem;
+    }
+    .footer-quote {
+      font-family: var(--ff-display); font-style: italic;
+      font-size: 1rem; color: var(--green-300); opacity: .8;
+    }
+    .footer-copy { font-size: .78rem; color: var(--green-400); opacity: .6; }
+    @media (max-width: 900px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 580px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ─── IMPACTO COUNTER ────────────────────────────────────── */
+    #impacto {
+      padding: var(--section-pad) 0;
+      background: var(--green-800);
+      position: relative; overflow: hidden;
+    }
+    #impacto::before {
+      content: '';
+      position: absolute; top: -40%; left: -20%;
+      width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(82,166,112,.12) 0%, transparent 70%);
+    }
+    .impacto-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;
+      position: relative;
+    }
+    .impacto-stat {
+      text-align: center; padding: 2rem 1rem;
+    }
+    .impacto-num {
+      font-family: var(--ff-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900;
+      color: var(--white); line-height: 1; margin-bottom: .5rem;
+    }
+    .impacto-num span { color: var(--green-400); }
+    .impacto-label {
+      font-size: .875rem; color: var(--green-200); text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .impacto-sublabel { font-size: .75rem; color: var(--green-400); margin-top: .25rem; }
+    .impacto-divider {
+      width: 1px; background: rgba(255,255,255,.1); margin: auto;
+    }
+
+    /* ─── ANIMATIONS ─────────────────────────────────────────── */
+    .fade-up {
+      opacity: 1; transform: translateY(0);
+    }
+    .fade-up-init {
+      opacity: 0; transform: translateY(40px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .fade-up-init.visible {
+      opacity: 1; transform: translateY(0);
+    }
+    .stagger > * {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .stagger > *.visible { opacity: 1; transform: translateY(0); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fade-up-init, .stagger > * { transition: none !important; opacity: 1 !important; transform: none !important; }
+      .hero-slide { transition: none !important; }
+      * { animation: none !important; }
+    }
+
+    /* ─── SCROLL PROGRESS ────────────────────────────────────── */
+    #scroll-progress {
+      position: fixed; top: 0; left: 0; height: 3px; z-index: calc(var(--z-sticky) + 1);
+      background: var(--green-400); width: 0%; transition: width .1s linear;
+    }
+  </style>
+</head>
+<body>
+
+<div id="scroll-progress" role="progressbar" aria-label="Progreso de lectura"></div>
+
+<!-- ─── NAVBAR ──────────────────────────────────────────────── -->
+<nav id="navbar" aria-label="Navegación principal">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#inicio" class="nav-logo" aria-label="Inicio - Emiliano Vargas, Raíces Vivas">
+        <div class="nav-logo-mark">
+          <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M11 2C11 2 5 7 5 12.5C5 15.538 7.686 18 11 18C14.314 18 17 15.538 17 12.5C17 7 11 2 11 2Z" fill="#7dc494"/>
+            <path d="M11 18V21M8 21H14" stroke="#b0dbbf" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M11 10L8.5 13" stroke="#b0dbbf" stroke-width="1" stroke-linecap="round" opacity=".6"/>
+            <path d="M11 10L13.5 13" stroke="#b0dbbf" stroke-width="1" stroke-linecap="round" opacity=".6"/>
+          </svg>
+        </div>
+        <div class="nav-logo-text">
+          <strong>Raíces Vivas</strong>
+          <span>Emiliano Vargas</span>
+        </div>
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="#mision">Misión</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#impacto">Impacto</a></li>
+        <li><a href="#quien-soy">Quién soy</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#donaciones">Donaciones</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <a href="#donaciones" class="btn btn-outline" style="padding:.55rem 1.1rem;font-size:.82rem;">Donar</a>
+        <a href="#aporta" class="btn btn-primary" style="padding:.55rem 1.25rem;font-size:.82rem;">Únete</a>
+      </div>
+
+      <button class="hamburger" id="hamburger-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Menú de navegación">
+  <button class="mobile-close" id="mobile-close" aria-label="Cerrar menú">✕</button>
+  <a href="#mision" class="mobile-link">Misión</a>
+  <a href="#proyectos" class="mobile-link">Proyectos</a>
+  <a href="#impacto" class="mobile-link">Impacto</a>
+  <a href="#quien-soy" class="mobile-link">Quién soy</a>
+  <a href="#galeria" class="mobile-link">Galería</a>
+  <a href="#aporta" class="mobile-link">Participa</a>
+  <a href="#donaciones" class="mobile-link">Donaciones</a>
+  <a href="#aporta" class="btn btn-primary" style="margin-top:1rem;">Únete ahora</a>
+</div>
+
+<!-- ─── HERO ─────────────────────────────────────────────────── -->
+<section id="inicio" aria-label="Inicio">
+  <div id="hero">
+    <div class="hero-slides" aria-hidden="true">
+      <div class="hero-slide active">
+        <!-- SVG Nature illustration 1 -->
+        <svg class="hero-nature-art" viewBox="0 0 1440 900" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g opacity=".6">
+            <ellipse cx="200" cy="700" rx="180" ry="220" fill="#2e6b47" opacity=".5"/>
+            <ellipse cx="350" cy="650" rx="120" ry="160" fill="#3a8558" opacity=".4"/>
+            <ellipse cx="1200" cy="720" rx="200" ry="250" fill="#245238" opacity=".5"/>
+            <ellipse cx="1050" cy="680" rx="130" ry="170" fill="#2e6b47" opacity=".35"/>
+            <path d="M700 400 Q650 200 720 100 Q760 180 740 380" fill="#52a670" opacity=".3"/>
+            <path d="M800 420 Q780 250 820 150 Q850 240 840 400" fill="#3a8558" opacity=".25"/>
+            <circle cx="100" cy="200" r="60" fill="#52a670" opacity=".15"/>
+            <circle cx="1380" cy="150" r="80" fill="#2e6b47" opacity=".12"/>
+          </g>
+        </svg>
+      </div>
+      <div class="hero-slide">
+        <svg class="hero-nature-art" viewBox="0 0 1440 900" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g opacity=".6">
+            <path d="M0 600 Q200 500 400 580 Q600 660 800 550 Q1000 440 1200 520 Q1350 580 1440 500 L1440 900 L0 900Z" fill="#1a5c35" opacity=".5"/>
+            <path d="M0 700 Q300 620 600 680 Q900 740 1200 660 Q1340 630 1440 670 L1440 900 L0 900Z" fill="#0d3b1f" opacity=".4"/>
+            <circle cx="720" cy="300" r="180" fill="#2d8050" opacity=".12"/>
+          </g>
+        </svg>
+      </div>
+      <div class="hero-slide">
+        <svg class="hero-nature-art" viewBox="0 0 1440 900" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g opacity=".6">
+            <rect x="0" y="0" width="1440" height="900" fill="url(#earthGrad)" opacity=".3"/>
+            <defs>
+              <linearGradient id="earthGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#5c3a1e"/>
+                <stop offset="100%" stop-color="#2e6b47"/>
+              </linearGradient>
+            </defs>
+            <path d="M400 500 L500 300 L600 500Z" fill="#7a4e2d" opacity=".25"/>
+            <path d="M800 600 L950 350 L1100 600Z" fill="#5c3a1e" opacity=".2"/>
+            <path d="M200 700 L300 500 L400 700Z" fill="#9a6340" opacity=".2"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="hero-content">
+      <div class="container">
+        <div class="hero-inner">
+          <div>
+            <div class="hero-tag">Conservación activa · Perú</div>
+            <h1 class="hero-headline">
+              La naturaleza<br>
+              <em>no puede esperar.</em>
+            </h1>
+            <p class="hero-sub">
+              Desde las selvas amazónicas hasta los bosques andinos, Emiliano Vargas y el equipo de Raíces Vivas trabajan cada día para proteger los ecosistemas que sostienen la vida en el Perú.
+            </p>
+            <div class="hero-actions">
+              <a href="#aporta" class="btn btn-primary">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1v14M1 8h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                Quiero participar
+              </a>
+              <a href="#proyectos" class="btn btn-outline">
+                Explorar proyectos
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-stats" aria-label="Estadísticas de impacto">
+            <div class="hero-stat">
+              <div class="hero-stat-num" data-target="3200" id="stat-ha">0</div>
+              <div class="hero-stat-label">Hectáreas protegidas</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-num" data-target="480" id="stat-vol">0</div>
+              <div class="hero-stat-label">Voluntarios activos</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-num" data-target="12" id="stat-proy">0</div>
+              <div class="hero-stat-label">Proyectos en curso</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide dots -->
+    <div class="hero-dots" role="tablist" aria-label="Diapositivas del hero">
+      <button class="hero-dot active" role="tab" aria-selected="true" aria-label="Diapositiva 1"></button>
+      <button class="hero-dot" role="tab" aria-selected="false" aria-label="Diapositiva 2"></button>
+      <button class="hero-dot" role="tab" aria-selected="false" aria-label="Diapositiva 3"></button>
+    </div>
+  </div>
+</section>
+
+<!-- ─── MISIÓN ───────────────────────────────────────────────── -->
+<section id="mision" aria-labelledby="mision-title">
+  <div style="background: var(--green-900); padding: var(--section-pad) 0; position: relative; overflow: hidden;">
+    <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--green-600),transparent);"></div>
+    <div class="container">
+      <div class="mision-grid">
+        <div class="mision-visual">
+          <div class="mision-photo-frame fade-up-init">
+            <div class="mision-photo-inner">
+              <!-- Botanical illustration SVG -->
+              <svg viewBox="0 0 300 380" xmlns="http://www.w3.org/2000/svg" style="width:70%;opacity:.7;" aria-hidden="true">
+                <g fill="none">
+                  <path d="M150 360 L150 180" stroke="#52a670" stroke-width="3" stroke-linecap="round"/>
+                  <path d="M150 280 Q100 240 70 200 Q120 210 150 250" fill="#3a8558" opacity=".8"/>
+                  <path d="M150 250 Q200 210 230 170 Q180 185 150 230" fill="#2e6b47" opacity=".8"/>
+                  <path d="M150 220 Q90 180 60 140 Q110 155 150 200" fill="#52a670" opacity=".6"/>
+                  <path d="M150 200 Q210 160 240 120 Q195 140 150 185" fill="#3a8558" opacity=".6"/>
+                  <ellipse cx="150" cy="100" rx="60" ry="80" fill="#245238" opacity=".5"/>
+                  <ellipse cx="150" cy="90" rx="45" ry="65" fill="#2e6b47" opacity=".6"/>
+                  <ellipse cx="150" cy="80" rx="30" ry="50" fill="#52a670" opacity=".7"/>
+                  <circle cx="150" cy="60" r="20" fill="#7dc494" opacity=".5"/>
+                  <path d="M130 360 L170 360" stroke="#52a670" stroke-width="2" stroke-linecap="round"/>
+                </g>
+              </svg>
+            </div>
+          </div>
+          <div class="mision-photo-badge">
+            <strong>[NOMBRE]</strong>
+            <span>Fundador & Director</span>
+          </div>
+          <div class="quien-credenciales" style="margin-top:3.5rem;">
+            <span class="credencial-chip" style="background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.1);color:var(--green-300);">Biólogo · UNMSM</span>
+            <span class="credencial-chip" style="background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.1);color:var(--green-300);">MSc Ecología</span>
+            <span class="credencial-chip" style="background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.1);color:var(--green-300);">+10 años campo</span>
+          </div>
+        </div>
+
+        <div class="mision-text fade-up-init">
+          <span class="eyebrow" style="color:var(--green-400);">Nuestra misión</span>
+          <h2 class="section-title" id="mision-title" style="color:var(--white);">
+            Proteger lo que <span style="color:var(--green-300);font-style:italic;">aún nos queda</span>
+          </h2>
+          <p class="section-lead" style="color:var(--green-100);opacity:.85;">
+            Raíces Vivas nació de una convicción simple: la ciencia debe salir de los laboratorios y convertirse en acción territorial. Cada expedición, cada árbol monitoreado, cada comunidad involucrada es un paso hacia un Perú más resiliente.
+          </p>
+          <blockquote class="mision-blockquote">
+            <p>"La biodiversidad no es un recurso. Es la red que nos sostiene a todos. Perderla significa perdernos."</p>
+            <cite>— Emiliano Vargas, fundador de Raíces Vivas</cite>
+          </blockquote>
+          <div class="mision-values stagger">
+            <div class="mision-value">
+              <div class="mision-value-icon">🔬</div>
+              <div class="mision-value-text">
+                <h4>Base científica rigurosa</h4>
+                <p>Cada intervención parte de monitoreo de datos y metodología validada por pares académicos.</p>
+              </div>
+            </div>
+            <div class="mision-value">
+              <div class="mision-value-icon">🤝</div>
+              <div class="mision-value-text">
+                <h4>Co-gestión con comunidades</h4>
+                <p>Las comunidades locales son el centro de cada proyecto, no un apéndice de la estrategia.</p>
+              </div>
+            </div>
+            <div class="mision-value">
+              <div class="mision-value-icon">📊</div>
+              <div class="mision-value-text">
+                <h4>Transparencia radical</h4>
+                <p>Publicamos todos nuestros datos, metodologías e informes de impacto abiertamente.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROYECTOS ────────────────────────────────────────────── -->
+<section id="proyectos" aria-labelledby="proyectos-title">
+  <div style="padding: var(--section-pad) 0; background: var(--cream);">
+    <div class="container">
+      <div class="proyectos-header">
+        <div class="fade-up-init">
+          <span class="eyebrow">Trabajo en campo</span>
+          <h2 class="section-title" id="proyectos-title">
+            Proyectos que <span>transforman</span>
+          </h2>
+        </div>
+        <a href="#aporta" class="btn btn-outline-dark fade-up-init">Ver cómo participar →</a>
+      </div>
+
+      <div class="proyectos-list">
+
+        <!-- Proyecto 1 -->
+        <article class="proyecto-card fade-up-init" aria-labelledby="proyecto1-name">
+          <div class="proyecto-visual">
+            <div class="proyecto-visual-bg" style="background: linear-gradient(135deg,#1a5c35 0%,#2d8050 40%,#1a3a2a 100%);">
+              <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;opacity:.5;" aria-hidden="true">
+                <circle cx="250" cy="250" r="200" fill="#3a8558" opacity=".3"/>
+                <path d="M100 400 Q200 280 250 200 Q300 280 400 400" fill="#52a670" opacity=".3"/>
+                <path d="M150 450 Q250 320 250 200 Q250 320 350 450" fill="#245238" opacity=".25"/>
+                <circle cx="250" cy="180" r="70" fill="#7dc494" opacity=".2"/>
+              </svg>
+            </div>
+            <div class="proyecto-visual-overlay"></div>
+            <span class="proyecto-visual-tag">Amazonía · Loreto</span>
+            <div class="proyecto-gallery-strip" aria-label="Fotos del proyecto">
+              <div class="gallery-thumb"><div class="gallery-thumb-inner" style="background:linear-gradient(135deg,#2d8050,#1a3a2a);"></div></div>
+              <div class="gallery-thumb"><div class="gallery-thumb-inner" style="background:linear-gradient(135deg,#3a8558,#245238);"></div></div>
+              <div class="gallery-thumb"><div class="gallery-thumb-inner" style="background:linear-gradient(135deg,#52a670,#1a5c35);"></div></div>
+              <div class="gallery-thumb"><div class="gallery-thumb-inner" style="background:linear-gradient(135deg,#7dc494,#2e6b47);"></div></div>
+            </div>
+          </div>
+          <div class="proyecto-info">
+            <div>
+              <div class="proyecto-meta">
+                <span class="proyecto-location">📍 Loreto, Perú</span>
+                <span class="proyecto-status activo">En curso</span>
+              </div>
+              <h3 class="proyecto-name" id="proyecto1-name">[Nombre del Proyecto 1]</h3>
+              <p class="proyecto-desc">
+                [Descripción del proyecto: qué se hace, en qué ecosistema, con quiénes, y cuál es el objetivo central de conservación o restauración.]
+              </p>
+              <div class="proyecto-impact-bar">
+                <div class="impact-chip">
+                  <span class="impact-chip-icon">🌳</span>
+                  <div>
+                    <div class="impact-chip-val">[X] ha</div>
+                    <div class="impact-chip-label">Área protegida</div>
+                  </div>
+                </div>
+                <div class="impact-chip">
+                  <span class="impact-chip-icon">🦜</span>
+                  <div>
+                    <div class="impact-chip-val">[X]</div>
+                    <div class="impact-chip-label">Especies monitoreadas</div>
+                  </div>
+                </div>
+                <div class="impact-chip">
+                  <span class="impact-chip-icon">👥</span>
+                  <div>
+                    <div class="impact-chip-val">[X]</div>
+                    <div class="impact-chip-label">Familias involucradas</div>
+                  </div>
+                </div>
+              </div>
+              <div class="proyecto-testimonial">
+                <p>"[Testimonio real de un participante o beneficiario del proyecto.]"</p>
+                <cite>— [Nombre], [rol/comunidad]</cite>
+              </div>
+            </div>
+            <div class="proyecto-actions">
+              <button class="btn btn-primary" onclick="this.closest('section').querySelector('#aporta') || document.querySelector('#aporta').scrollIntoView({behavior:'smooth'})">Ver más</button>
+              <a href="#aporta" class="btn btn-outline-dark">Participar en este proyecto</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- LOGRO entre proyectos -->
+        <div class="proyecto-logro fade-up-init" role="note" aria-label="Reconocimiento">
+          <div class="logro-icon" aria-hidden="true">🏆</div>
+          <div class="logro-text">
+            <h4>Reconocimiento</h4>
+            <p>[Nombre del premio o reconocimiento institucional obtenido por este trabajo]</p>
+          </div>
+        </div>
+
+        <!-- Proyecto 2 -->
+        <article class="proyecto-card fade-up-init" aria-labelledby="proyecto2-name">
+          <div class="proyecto-visual">
+            <div class="proyecto-visual-bg" style="background: linear-gradient(135deg,#5c3a1e 0%,#8a5530 40%,#3d2512 100%);">
+              <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;opacity:.5;" aria-hidden="true">
+                <path d="M50 400 Q150 250 250 180 Q350 250 450 400" fill="#9a6340" opacity=".35"/>
+                <circle cx="250" cy="160" r="90" fill="#b87c55" opacity=".25"/>
+                <path d="M200 500 L250 300 L300 500" fill="#7a4e2d" opacity=".3"/>
+                <path d="M100 500 L200 350 L230 500" fill="#5c3a1e" opacity=".25"/>
+              </svg>
+            </div>
+            <div class="proyecto-visual-overlay"></div>
+            <span class="proyecto-visual-tag">Bosque Andino · Cusco</span>
+            <div class="proyecto-gallery-strip">
+              <div class="gallery-thumb"><div class="gallery-thumb-inner" style="background:linear-gradient(135deg,#8a5530,#3d2512);"></div></div>
+              <div class="gallery-thumb"><div class="gallery-thumb-inner" style="background:linear-gradient(135deg,#9a6340,#5c3a1e);"></div></div>
+              <div class="gallery-thumb"><div class="gallery-thumb-inner" style="background:linear-gradient(135deg,#b87c55,#7a4e2d);"></div></div>
+            </div>
+          </div>
+          <div class="proyecto-info">
+            <div>
+              <div class="proyecto-meta">
+                <span class="proyecto-location">📍 Cusco, Perú</span>
+                <span class="proyecto-status completado">Completado</span>
+              </div>
+              <h3 class="proyecto-name" id="proyecto2-name">[Nombre del Proyecto 2]</h3>
+              <p class="proyecto-desc">
+                [Descripción del proyecto en bosques andinos: restauración, reforestación nativa, o corredor ecológico. Metodología y aliados involucrados.]
+              </p>
+              <div class="proyecto-impact-bar">
+                <div class="impact-chip">
+                  <span class="impact-chip-icon">🌱</span>
+                  <div>
+                    <div class="impact-chip-val">[X]k</div>
+                    <div class="impact-chip-label">Árboles plantados</div>
+                  </div>
+                </div>
+                <div class="impact-chip">
+                  <span class="impact-chip-icon">💧</span>
+                  <div>
+                    <div class="impact-chip-val">[X]</div>
+                    <div class="impact-chip-label">Microcuencas recuperadas</div>
+                  </div>
+                </div>
+                <div class="impact-chip">
+                  <span class="impact-chip-icon">📅</span>
+                  <div>
+                    <div class="impact-chip-val">[X] meses</div>
+                    <div class="impact-chip-label">Duración</div>
+                  </div>
+                </div>
+              </div>
+              <div class="proyecto-testimonial">
+                <p>"[Testimonio de un voluntario, colaborador o beneficiario de este proyecto específico.]"</p>
+                <cite>— [Nombre], [rol]</cite>
+              </div>
+            </div>
+            <div class="proyecto-actions">
+              <button class="btn btn-earth">Ver más</button>
+              <a href="#donaciones" class="btn btn-outline-dark">Apoyar un proyecto similar</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- LOGRO entre proyectos -->
+        <div class="proyecto-logro fade-up-init" role="note">
+          <div class="logro-icon" aria-hidden="true">🌍</div>
+          <div class="logro-text">
+            <h4>Alianza institucional</h4>
+            <p>[Nombre de universidad, institución pública o internacional aliada a este trabajo]</p>
+          </div>
+        </div>
+
+        <!-- Proyecto 3 -->
+        <article class="proyecto-card fade-up-init" aria-labelledby="proyecto3-name">
+          <div class="proyecto-visual">
+            <div class="proyecto-visual-bg" style="background: linear-gradient(135deg,#132a1e 0%,#245238 40%,#0d1f17 100%);">
+              <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;opacity:.5;" aria-hidden="true">
+                <path d="M0 300 Q125 200 250 250 Q375 300 500 200 L500 500 L0 500Z" fill="#2e6b47" opacity=".4"/>
+                <path d="M0 380 Q150 300 300 350 Q400 380 500 320 L500 500 L0 500Z" fill="#1a3a2a" opacity=".5"/>
+                <circle cx="120" cy="200" r="60" fill="#52a670" opacity=".2"/>
+                <circle cx="380" cy="180" r="50" fill="#3a8558" opacity=".2"/>
+              </svg>
+            </div>
+            <div class="proyecto-visual-overlay"></div>
+            <span class="proyecto-visual-tag">Costa · Piura</span>
+            <div class="proyecto-gallery-strip">
+              <div class="gallery-thumb"><div class="gallery-thumb-inner" style="background:linear-gradient(135deg,#245238,#0d1f17);"></div></div>
+              <div class="gallery-thumb"><div class="gallery-thumb-inner" style="background:linear-gradient(135deg,#3a8558,#132a1e);"></div></div>
+              <div class="gallery-thumb"><div class="gallery-thumb-inner" style="background:linear-gradient(135deg,#52a670,#245238);"></div></div>
+            </div>
+          </div>
+          <div class="proyecto-info">
+            <div>
+              <div class="proyecto-meta">
+                <span class="proyecto-location">📍 Piura, Perú</span>
+                <span class="proyecto-status activo">En curso</span>
+              </div>
+              <h3 class="proyecto-name" id="proyecto3-name">[Nombre del Proyecto 3]</h3>
+              <p class="proyecto-desc">
+                [Descripción del tercer proyecto. Puede ser manglares, humedales costeros, fauna marina, o educación ambiental en comunidades costeras.]
+              </p>
+              <div class="proyecto-impact-bar">
+                <div class="impact-chip">
+                  <span class="impact-chip-icon">🐟</span>
+                  <div>
+                    <div class="impact-chip-val">[X]</div>
+                    <div class="impact-chip-label">Especies registradas</div>
+                  </div>
+                </div>
+                <div class="impact-chip">
+                  <span class="impact-chip-icon">🏫</span>
+                  <div>
+                    <div class="impact-chip-val">[X]</div>
+                    <div class="impact-chip-label">Escuelas involucradas</div>
+                  </div>
+                </div>
+              </div>
+              <div class="proyecto-testimonial">
+                <p>"[Testimonio de un docente, pescador artesanal u otro actor clave del proyecto costero.]"</p>
+                <cite>— [Nombre], [comunidad/rol]</cite>
+              </div>
+            </div>
+            <div class="proyecto-actions">
+              <button class="btn btn-primary">Ver más</button>
+              <a href="#aporta" class="btn btn-outline-dark">Voluntariar aquí</a>
+            </div>
+          </div>
+        </article>
+
+      </div><!-- /proyectos-list -->
+
+      <!-- Testimonios generales -->
+      <div class="testimonios-section fade-up-init">
+        <span class="eyebrow">Voces del equipo</span>
+        <h3 class="section-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Lo que dicen quienes <span>ya están aquí</span></h3>
+        <div class="testimonios-grid stagger">
+          <div class="testimonio-card">
+            <div class="testimonio-stars" aria-label="5 estrellas">★★★★★</div>
+            <p class="testimonio-text">"[Testimonio de un voluntario sobre su experiencia personal en campo, qué aprendió y cómo cambió su perspectiva.]"</p>
+            <div class="testimonio-author">
+              <div class="testimonio-avatar" aria-hidden="true">[I]</div>
+              <div>
+                <div class="testimonio-name">[Nombre del voluntario]</div>
+                <div class="testimonio-role">[Ciudad, perfil: estudiante/profesional/etc.]</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonio-card">
+            <div class="testimonio-stars" aria-label="5 estrellas">★★★★★</div>
+            <p class="testimonio-text">"[Testimonio de un donante sobre por qué decidió apoyar y qué lo motivó a hacerlo de manera recurrente.]"</p>
+            <div class="testimonio-author">
+              <div class="testimonio-avatar" aria-hidden="true">[I]</div>
+              <div>
+                <div class="testimonio-name">[Nombre del donante]</div>
+                <div class="testimonio-role">[Empresa o perfil]</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonio-card">
+            <div class="testimonio-stars" aria-label="5 estrellas">★★★★★</div>
+            <p class="testimonio-text">"[Testimonio de un aliado institucional: universidad, ONG internacional, o empresa que colabora con Raíces Vivas.]"</p>
+            <div class="testimonio-author">
+              <div class="testimonio-avatar" aria-hidden="true">[I]</div>
+              <div>
+                <div class="testimonio-name">[Nombre del aliado]</div>
+                <div class="testimonio-role">[Institución]</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── IMPACTO ───────────────────────────────────────────────── -->
+<section id="impacto" aria-labelledby="impacto-title">
+  <div id="impacto" style="padding:var(--section-pad) 0;background:var(--green-800);position:relative;overflow:hidden;">
+    <div style="position:absolute;top:-40%;left:-20%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(82,166,112,.12) 0%,transparent 70%);pointer-events:none;"></div>
+    <div class="container" style="position:relative;">
+      <div style="text-align:center;margin-bottom:3rem;">
+        <span class="eyebrow" style="color:var(--green-400);">Nuestro impacto</span>
+        <h2 class="section-title" id="impacto-title" style="color:var(--white);margin-top:.5rem;">
+          Números que <span style="color:var(--green-300);font-style:italic;">hablan solos</span>
+        </h2>
+      </div>
+      <div class="impacto-grid stagger" role="list">
+        <div class="impacto-stat" role="listitem">
+          <div class="impacto-num"><span class="counter" data-target="3200">0</span><span>+</span></div>
+          <div class="impacto-label">Hectáreas bajo conservación</div>
+          <div class="impacto-sublabel">Activas en 3 regiones del Perú</div>
+        </div>
+        <div class="impacto-stat" role="listitem">
+          <div class="impacto-num"><span class="counter" data-target="12">0</span></div>
+          <div class="impacto-label">Proyectos de conservación</div>
+          <div class="impacto-sublabel">Amazonía, Andes y Costa</div>
+        </div>
+        <div class="impacto-stat" role="listitem">
+          <div class="impacto-num"><span class="counter" data-target="480">0</span><span>+</span></div>
+          <div class="impacto-label">Voluntarios formados</div>
+          <div class="impacto-sublabel">Desde 2016</div>
+        </div>
+        <div class="impacto-stat" role="listitem">
+          <div class="impacto-num"><span class="counter" data-target="87">0</span></div>
+          <div class="impacto-label">Especies monitoreadas</div>
+          <div class="impacto-sublabel">Flora y fauna nativa</div>
+        </div>
+        <div class="impacto-stat" role="listitem">
+          <div class="impacto-num"><span class="counter" data-target="24">0</span></div>
+          <div class="impacto-label">Comunidades aliadas</div>
+          <div class="impacto-sublabel">Actores locales clave</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── QUIÉN SOY ────────────────────────────────────────────── -->
+<section id="quien-soy" aria-labelledby="quien-title">
+  <div style="background:var(--green-950);padding:var(--section-pad) 0;overflow:hidden;">
+    <div class="container">
+      <div class="quien-soy-grid">
+        <div class="quien-foto-stack fade-up-init">
+          <div class="quien-foto-main">
+            <div class="quien-foto-main-inner">
+              <div class="quien-foto-overlay">
+                <div>
+                  <p>Emiliano Vargas</p>
+                  <span>Expedición Madre de Dios, 2023</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="quien-foto-accent" aria-hidden="true">
+            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="40" cy="30" r="25" fill="#b0dbbf" opacity=".4"/>
+              <path d="M40 55 L40 75" stroke="#d09b78" stroke-width="3" stroke-linecap="round"/>
+              <path d="M25 65 L55 65" stroke="#d09b78" stroke-width="2" stroke-linecap="round"/>
+              <path d="M40 42 Q25 32 20 22 Q35 28 40 38" fill="#7dc494" opacity=".6"/>
+              <path d="M40 38 Q55 28 60 18 Q45 26 40 36" fill="#52a670" opacity=".5"/>
+            </svg>
+          </div>
+          <div class="quien-credenciales">
+            <span class="credencial-chip">Biólogo · UNMSM</span>
+            <span class="credencial-chip">MSc Ecología Tropical</span>
+            <span class="credencial-chip">IUCN Member</span>
+            <span class="credencial-chip">+10 expediciones</span>
+            <span class="credencial-chip">Publicaciones ISI</span>
+          </div>
+        </div>
+
+        <div class="quien-text fade-up-init">
+          <span class="eyebrow" style="color:var(--green-400);">Quién está detrás</span>
+          <h2 class="section-title" id="quien-title" style="color:var(--white);">
+            Emiliano <span style="color:var(--green-300);font-style:italic;">Vargas</span>
+          </h2>
+          <p class="quien-bio">
+            [Párrafo 1: Historia personal de Emiliano — de dónde viene, qué lo llevó a la biología y la conservación, un momento de quiebre o descubrimiento que define su vocación.]
+          </p>
+          <p class="quien-bio">
+            [Párrafo 2: Trayectoria académica y profesional — estudios, trabajos de campo más importantes, organizaciones con las que ha colaborado, publicaciones o investigaciones relevantes.]
+          </p>
+          <p class="quien-bio">
+            [Párrafo 3: Filosofía de vida y visión a futuro — cómo entiende la relación entre ciencia, comunidad y naturaleza.]
+          </p>
+
+          <div class="quien-timeline">
+            <div class="quien-timeline-item">
+              <div class="quien-timeline-year">[Año]</div>
+              <div>
+                <div class="quien-timeline-title">[Logro o hito académico/profesional]</div>
+                <div class="quien-timeline-sub">[Institución o contexto]</div>
+              </div>
+            </div>
+            <div class="quien-timeline-item">
+              <div class="quien-timeline-year">[Año]</div>
+              <div>
+                <div class="quien-timeline-title">[Fundación de Raíces Vivas]</div>
+                <div class="quien-timeline-sub">Lima, Perú</div>
+              </div>
+            </div>
+            <div class="quien-timeline-item">
+              <div class="quien-timeline-year">[Año]</div>
+              <div>
+                <div class="quien-timeline-title">[Primer gran proyecto o expedición]</div>
+                <div class="quien-timeline-sub">[Región del Perú]</div>
+              </div>
+            </div>
+            <div class="quien-timeline-item">
+              <div class="quien-timeline-year">[Año]</div>
+              <div>
+                <div class="quien-timeline-title">[Reconocimiento o alianza importante]</div>
+                <div class="quien-timeline-sub">[Nombre de la institución]</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="quien-filosofia">
+            <p>"[Frase corta y poderosa de Emiliano que capture su filosofía de vida y relación con la naturaleza.]"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── GALERÍA ──────────────────────────────────────────────── -->
+<section id="galeria" aria-labelledby="galeria-title">
+  <div style="padding:var(--section-pad) 0;background:var(--white);">
+    <div class="container">
+      <div class="fade-up-init">
+        <span class="eyebrow">Detrás del trabajo</span>
+        <h2 class="section-title" id="galeria-title">
+          La naturaleza <span>en imágenes</span>
+        </h2>
+      </div>
+      <div class="galeria-filter" role="group" aria-label="Filtros de galería">
+        <button class="galeria-btn active" data-filter="all">Todos</button>
+        <button class="galeria-btn" data-filter="proyectos">Proyectos</button>
+        <button class="galeria-btn" data-filter="expediciones">Expediciones</button>
+        <button class="galeria-btn" data-filter="campo">Trabajo de campo</button>
+        <button class="galeria-btn" data-filter="voluntarios">Voluntarios</button>
+      </div>
+      <div class="masonry-grid" id="masonry-grid" role="list" aria-label="Galería fotográfica">
+        <!-- Generated by JS -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── APORTA ───────────────────────────────────────────────── -->
+<section id="aporta" aria-labelledby="aporta-title">
+  <div style="padding:var(--section-pad) 0;background:var(--green-900);">
+    <div class="container">
+      <div class="fade-up-init">
+        <span class="eyebrow" style="color:var(--green-400);">Sé parte del cambio</span>
+        <h2 class="section-title" id="aporta-title" style="color:var(--white);">
+          Hay un lugar <span style="color:var(--green-300);font-style:italic;">para ti</span>
+        </h2>
+        <p class="section-lead" style="color:var(--green-100);opacity:.8;">
+          Cada persona que se suma amplifica el impacto. Elige cómo quieres contribuir.
+        </p>
+      </div>
+
+      <div class="aporta-tabs" role="tablist" aria-label="Formas de participar">
+        <button class="aporta-tab active" role="tab" aria-selected="true" aria-controls="panel-voluntariado" id="tab-voluntariado" data-tab="voluntariado">🌿 Voluntariado</button>
+        <button class="aporta-tab" role="tab" aria-selected="false" aria-controls="panel-empresas" id="tab-empresas" data-tab="empresas">🤝 Empresas y alianzas</button>
+        <button class="aporta-tab" role="tab" aria-selected="false" aria-controls="panel-difusion" id="tab-difusion" data-tab="difusion">📣 Difusión</button>
+      </div>
+
+      <!-- Panel: Voluntariado -->
+      <div class="aporta-panel active" id="panel-voluntariado" role="tabpanel" aria-labelledby="tab-voluntariado">
+        <div class="voluntariado-grid">
+          <div>
+            <h3 class="form-section-title" style="color:var(--white);font-size:1.15rem;margin-bottom:1.5rem;">Actividades de voluntariado</h3>
+            <div class="actividades-list stagger">
+              <div class="actividad-item">
+                <div class="actividad-icon" aria-hidden="true">🔭</div>
+                <div>
+                  <div class="actividad-title">Monitoreo de biodiversidad</div>
+                  <div class="actividad-desc">Registro de fauna y flora en transectos definidos. Se proporciona capacitación previa.</div>
+                </div>
+              </div>
+              <div class="actividad-item">
+                <div class="actividad-icon" aria-hidden="true">🌱</div>
+                <div>
+                  <div class="actividad-title">Restauración y reforestación</div>
+                  <div class="actividad-desc">Siembra de especies nativas en áreas degradadas, seguimiento y mantenimiento.</div>
+                </div>
+              </div>
+              <div class="actividad-item">
+                <div class="actividad-icon" aria-hidden="true">📸</div>
+                <div>
+                  <div class="actividad-title">Documentación visual y científica</div>
+                  <div class="actividad-desc">Fotografía de campo, georreferenciación y sistematización de datos.</div>
+                </div>
+              </div>
+              <div class="actividad-item">
+                <div class="actividad-icon" aria-hidden="true">🏫</div>
+                <div>
+                  <div class="actividad-title">Educación ambiental comunitaria</div>
+                  <div class="actividad-desc">Talleres en escuelas y comunidades locales sobre conservación y biodiversidad.</div>
+                </div>
+              </div>
+            </div>
+            <div style="margin-top:2rem;">
+              <p style="color:var(--green-200);font-size:.9rem;margin-bottom:.75rem;">Beneficios del voluntariado</p>
+              <div class="beneficios-list">
+                <div class="beneficio">Certificado de participación emitido por Raíces Vivas</div>
+                <div class="beneficio">Capacitación técnica en métodos de campo</div>
+                <div class="beneficio">Acceso a expediciones y trabajo con el equipo científico</div>
+                <div class="beneficio">Red de contactos en el mundo de la conservación</div>
+                <div class="beneficio">Posibilidad de coautoría en informes de campo</div>
+              </div>
+            </div>
+            <div style="margin-top:1.5rem;">
+              <p style="color:var(--green-200);font-size:.82rem;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.06em;">Disponibilidad</p>
+              <div class="disponibilidad-chips">
+                <span class="dispon-chip">Fines de semana</span>
+                <span class="dispon-chip">Vacaciones</span>
+                <span class="dispon-chip">Trabajo remoto</span>
+                <span class="dispon-chip">Expediciones (5-10 días)</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="form-section-title" style="color:var(--white);font-size:1.15rem;margin-bottom:1.5rem;">Inscríbete como voluntario/a</h3>
+            <form onsubmit="handleFormSubmit(event, 'voluntariado')" novalidate>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label class="form-label" for="v-nombre">Nombre *</label>
+                  <input type="text" id="v-nombre" class="form-input" placeholder="Tu nombre" required autocomplete="given-name"/>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="v-apellido">Apellido *</label>
+                  <input type="text" id="v-apellido" class="form-input" placeholder="Tu apellido" required autocomplete="family-name"/>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="v-email">Correo electrónico *</label>
+                <input type="email" id="v-email" class="form-input" placeholder="tuemail@ejemplo.com" required autocomplete="email"/>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="v-tel">Teléfono / WhatsApp</label>
+                <input type="tel" id="v-tel" class="form-input" placeholder="+51 9XX XXX XXX" autocomplete="tel"/>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="v-perfil">Perfil o estudios</label>
+                <select id="v-perfil" class="form-select">
+                  <option value="">Selecciona tu perfil</option>
+                  <option>Estudiante universitario (ciencias)</option>
+                  <option>Profesional en biología/ecología</option>
+                  <option>Otro profesional comprometido</option>
+                  <option>Sin formación específica, con motivación</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="v-disponibilidad">Disponibilidad</label>
+                <select id="v-disponibilidad" class="form-select">
+                  <option value="">¿Cuándo puedes participar?</option>
+                  <option>Fines de semana (Lima)</option>
+                  <option>Vacaciones (expedición campo)</option>
+                  <option>Trabajo remoto (análisis/comunicación)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="v-motivo">¿Por qué quieres unirte?</label>
+                <textarea id="v-motivo" class="form-textarea" placeholder="Cuéntanos brevemente tu motivación..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
+                Enviar inscripción →
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel: Empresas -->
+      <div class="aporta-panel" id="panel-empresas" role="tabpanel" aria-labelledby="tab-empresas">
+        <div class="empresas-grid stagger">
+          <div class="empresa-card">
+            <div class="empresa-card-icon" aria-hidden="true">🌿</div>
+            <div class="empresa-card-title">Patrocinios de proyectos</div>
+            <div class="empresa-card-desc">Tu empresa financia proyectos de conservación a cambio de visibilidad, informes de impacto y reconocimiento en todos nuestros canales.</div>
+          </div>
+          <div class="empresa-card">
+            <div class="empresa-card-icon" aria-hidden="true">🔬</div>
+            <div class="empresa-card-title">Colaboraciones técnicas</div>
+            <div class="empresa-card-desc">Aporta expertise técnico, equipos, laboratorios o personal especializado para fortalecer nuestra capacidad científica.</div>
+          </div>
+          <div class="empresa-card">
+            <div class="empresa-card-icon" aria-hidden="true">♻️</div>
+            <div class="empresa-card-title">Responsabilidad Social</div>
+            <div class="empresa-card-desc">Diseñamos programas de RSE articulados con nuestros proyectos para que tu empresa tenga impacto real y medible.</div>
+          </div>
+        </div>
+        <div style="margin-top:3rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;">
+          <div>
+            <h3 class="form-section-title" style="color:var(--white);font-size:1.1rem;margin-bottom:1rem;">¿Qué obtienes como aliado?</h3>
+            <div class="beneficios-list">
+              <div class="beneficio">Informe de impacto personalizado para tu empresa</div>
+              <div class="beneficio">Logo visible en materiales, redes y sitio web</div>
+              <div class="beneficio">Visitas de campo para tu equipo</div>
+              <div class="beneficio">Contenido audiovisual del proyecto para comunicación</div>
+              <div class="beneficio">Carta de alianza para reportes de sostenibilidad</div>
+            </div>
+          </div>
+          <div>
+            <h3 class="form-section-title" style="color:var(--white);font-size:1.15rem;margin-bottom:1.5rem;">Formulario empresarial</h3>
+            <form onsubmit="handleFormSubmit(event, 'empresa')" novalidate>
+              <div class="form-group">
+                <label class="form-label" for="e-empresa">Empresa / Organización *</label>
+                <input type="text" id="e-empresa" class="form-input" placeholder="Nombre de la empresa" required/>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="e-contacto">Nombre del contacto *</label>
+                <input type="text" id="e-contacto" class="form-input" placeholder="Tu nombre completo" required/>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="e-email">Correo corporativo *</label>
+                <input type="email" id="e-email" class="form-input" placeholder="contacto@empresa.com" required/>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="e-tipo">Tipo de colaboración</label>
+                <select id="e-tipo" class="form-select">
+                  <option value="">¿Cómo quieres colaborar?</option>
+                  <option>Patrocinio de proyecto</option>
+                  <option>Programa RSE</option>
+                  <option>Colaboración técnica</option>
+                  <option>Donación corporativa</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="e-mensaje">Mensaje</label>
+                <textarea id="e-mensaje" class="form-textarea" placeholder="Cuéntanos sobre tu empresa y cómo imaginas la alianza..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
+                Contactar al equipo →
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel: Difusión -->
+      <div class="aporta-panel" id="panel-difusion" role="tabpanel" aria-labelledby="tab-difusion">
+        <div class="difusion-grid stagger">
+          <div class="difusion-card">
+            <div class="difusion-icon" aria-hidden="true">📱</div>
+            <div class="difusion-title">Redes sociales</div>
+            <div class="difusion-desc">Síguenos en Instagram, Facebook y TikTok. Comparte nuestro contenido para ampliar el alcance de la conservación.</div>
+            <a href="#footer" class="btn btn-outline" style="font-size:.82rem;padding:.5rem 1.1rem;border-color:rgba(255,255,255,.35);">Ver redes</a>
+          </div>
+          <div class="difusion-card">
+            <div class="difusion-icon" aria-hidden="true">📢</div>
+            <div class="difusion-title">Comparte campañas</div>
+            <div class="difusion-desc">Cuando lancemos campañas de recaudación o peticiones, tu difusión multiplica el impacto. Regístrate para recibir alertas.</div>
+            <button class="btn btn-primary" style="font-size:.82rem;padding:.5rem 1.1rem;" onclick="document.getElementById('v-email')&&document.getElementById('v-email').focus()">Recibir alertas</button>
+          </div>
+          <div class="difusion-card">
+            <div class="difusion-icon" aria-hidden="true">💬</div>
+            <div class="difusion-title">Comunidad WhatsApp</div>
+            <div class="difusion-desc">Únete a nuestro grupo de comunidad online. Actualizaciones de proyectos, convocatorias y conexión con otros miembros.</div>
+            <a href="https://wa.me/51XXXXXXXXX" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size:.82rem;padding:.5rem 1.1rem;">Unirse al grupo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── DONACIONES ────────────────────────────────────────────── -->
+<section id="donaciones" aria-labelledby="donaciones-title">
+  <div style="padding:var(--section-pad) 0;background:var(--cream);">
+    <div class="container">
+      <div class="fade-up-init" style="text-align:center;margin-bottom:3rem;">
+        <span class="eyebrow">Apoya la causa</span>
+        <h2 class="section-title" id="donaciones-title">
+          Tu donación <span>transforma</span><br>ecosistemas reales
+        </h2>
+        <p class="section-lead" style="margin-inline:auto;">
+          Cada sol aportado va directamente a campo. Publicamos todos nuestros informes financieros abiertamente.
+        </p>
+      </div>
+      <div class="donaciones-grid">
+        <div class="fade-up-init">
+          <h3 style="font-family:var(--ff-body);font-weight:500;color:var(--green-900);margin-bottom:1.5rem;">Elige el impacto que quieres generar</h3>
+          <div class="donacion-amounts" id="amount-grid" role="group" aria-label="Montos de donación">
+            <div class="amount-card" data-amount="25" onclick="selectAmount(this)" role="button" tabindex="0" aria-pressed="false">
+              <div class="amount-val">S/ 25</div>
+              <div class="amount-desc">Materiales para una sesión de monitoreo de campo</div>
+            </div>
+            <div class="amount-card featured selected" data-amount="80" onclick="selectAmount(this)" role="button" tabindex="0" aria-pressed="true">
+              <div class="amount-val" style="color:var(--earth-700);">S/ 80</div>
+              <div class="amount-desc">Un día completo de monitoreo de biodiversidad</div>
+            </div>
+            <div class="amount-card" data-amount="150" onclick="selectAmount(this)" role="button" tabindex="0" aria-pressed="false">
+              <div class="amount-val">S/ 150</div>
+              <div class="amount-desc">Participación en una expedición de campo de 3 días</div>
+            </div>
+          </div>
+          <div class="donacion-custom">
+            <span style="color:var(--ink-2);font-weight:500;font-size:1rem;white-space:nowrap;">S/</span>
+            <input type="number" class="donacion-custom-input" id="custom-amount" placeholder="Otro monto" min="1" aria-label="Monto personalizado de donación"/>
+          </div>
+          <h4 style="font-family:var(--ff-body);font-weight:500;color:var(--ink-2);font-size:.88rem;margin-bottom:.75rem;letter-spacing:.04em;text-transform:uppercase;">Método de pago</h4>
+          <div class="donacion-methods" role="group" aria-label="Métodos de pago">
+            <div class="method-badge active" onclick="selectMethod(this)" role="button" tabindex="0">
+              <span class="method-icon" aria-hidden="true">📱</span> Yape
+            </div>
+            <div class="method-badge" onclick="selectMethod(this)" role="button" tabindex="0">
+              <span class="method-icon" aria-hidden="true">💳</span> Plin
+            </div>
+            <div class="method-badge" onclick="selectMethod(this)" role="button" tabindex="0">
+              <span class="method-icon" aria-hidden="true">🌐</span> PayPal
+            </div>
+            <div class="method-badge" onclick="selectMethod(this)" role="button" tabindex="0">
+              <span class="method-icon" aria-hidden="true">🏦</span> Transferencia
+            </div>
+          </div>
+          <div id="payment-instructions" style="margin-top:1rem;padding:1rem;background:var(--green-50);border-radius:var(--radius-sm);border:1px solid var(--green-200);font-size:.875rem;color:var(--green-800);">
+            📱 <strong>Yape:</strong> Número [+51 9XX XXX XXX] — a nombre de [Nombre]<br>
+            <small style="color:var(--green-600);">Envíanos el comprobante a <strong>[correo]</strong> indicando "Donación Raíces Vivas"</small>
+          </div>
+          <button class="btn btn-primary" style="margin-top:1.5rem;width:100%;justify-content:center;font-size:1rem;padding:1rem;" id="donate-btn" onclick="handleDonation()">
+            Donar ahora →
+          </button>
+          <p style="font-size:.75rem;color:var(--ink-4);margin-top:.75rem;text-align:center;">
+            🔒 Proceso seguro · Recibirás confirmación por correo
+          </p>
+        </div>
+
+        <div class="fade-up-init">
+          <div class="donacion-info-box">
+            <h3 class="donacion-info-title">¿A dónde va tu dinero?</h3>
+            <div class="transparency-item">
+              <div class="transparency-pct">75%</div>
+              <div class="transparency-bar-wrap">
+                <div class="transparency-label">Operaciones en campo</div>
+                <div class="transparency-bar"><div class="transparency-bar-fill" style="width:0%" data-width="75%"></div></div>
+              </div>
+            </div>
+            <div class="transparency-item">
+              <div class="transparency-pct">12%</div>
+              <div class="transparency-bar-wrap">
+                <div class="transparency-label">Formación de voluntarios</div>
+                <div class="transparency-bar"><div class="transparency-bar-fill" style="width:0%" data-width="12%"></div></div>
+              </div>
+            </div>
+            <div class="transparency-item">
+              <div class="transparency-pct">8%</div>
+              <div class="transparency-bar-wrap">
+                <div class="transparency-label">Comunicación y difusión</div>
+                <div class="transparency-bar"><div class="transparency-bar-fill" style="width:0%" data-width="8%"></div></div>
+              </div>
+            </div>
+            <div class="transparency-item">
+              <div class="transparency-pct">5%</div>
+              <div class="transparency-bar-wrap">
+                <div class="transparency-label">Administración</div>
+                <div class="transparency-bar"><div class="transparency-bar-fill" style="width:0%" data-width="5%"></div></div>
+              </div>
+            </div>
+            <a href="#" style="display:block;margin-top:1.5rem;font-size:.82rem;color:var(--green-600);text-decoration:underline;text-underline-offset:3px;">
+              Ver informe financiero completo →
+            </a>
+          </div>
+
+          <div style="margin-top:1.5rem;background:var(--green-800);border-radius:var(--radius-lg);padding:2rem;color:var(--white);">
+            <div style="font-size:1.5rem;margin-bottom:.75rem;" aria-hidden="true">💚</div>
+            <h4 style="font-family:var(--ff-body);font-weight:500;font-size:1rem;margin-bottom:.5rem;">Donación recurrente</h4>
+            <p style="font-size:.875rem;color:var(--green-200);opacity:.85;margin-bottom:1.25rem;">
+              Con S/ 25 mensuales, aseguras el monitoreo continuo de un área de conservación. El impacto más poderoso es el constante.
+            </p>
+            <button class="btn btn-primary" style="width:100%;justify-content:center;">
+              Quiero donar mensualmente
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACTO ──────────────────────────────────────────────── -->
+<section id="contacto" aria-labelledby="contacto-title" style="padding:var(--section-pad) 0;background:var(--green-800);">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3rem;" class="fade-up-init">
+      <span class="eyebrow" style="color:var(--green-400);">Hablemos</span>
+      <h2 class="section-title" id="contacto-title" style="color:var(--white);">
+        Escríbenos <span style="color:var(--green-300);font-style:italic;">cuando quieras</span>
+      </h2>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;">
+      <div class="fade-up-init">
+        <div style="display:flex;flex-direction:column;gap:1.5rem;">
+          <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-md);padding:1.5rem;display:flex;gap:1rem;align-items:flex-start;">
+            <span style="font-size:1.5rem;" aria-hidden="true">📧</span>
+            <div>
+              <div style="font-weight:500;color:var(--white);font-size:.9rem;margin-bottom:.25rem;">Correo electrónico</div>
+              <a href="mailto:[correo@raicesvivas.pe]" style="color:var(--green-300);font-size:.875rem;">[correo@raicesvivas.pe]</a>
+            </div>
+          </div>
+          <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-md);padding:1.5rem;display:flex;gap:1rem;align-items:flex-start;">
+            <span style="font-size:1.5rem;" aria-hidden="true">📱</span>
+            <div>
+              <div style="font-weight:500;color:var(--white);font-size:.9rem;margin-bottom:.25rem;">WhatsApp</div>
+              <a href="https://wa.me/51XXXXXXXXX" style="color:var(--green-300);font-size:.875rem;">[+51 9XX XXX XXX]</a>
+            </div>
+          </div>
+          <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-md);padding:1.5rem;display:flex;gap:1rem;align-items:flex-start;">
+            <span style="font-size:1.5rem;" aria-hidden="true">📍</span>
+            <div>
+              <div style="font-weight:500;color:var(--white);font-size:.9rem;margin-bottom:.25rem;">Ubicación</div>
+              <div style="color:var(--green-300);font-size:.875rem;">[Lima, Perú — con trabajo en campo en Loreto, Cusco y Piura]</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fade-up-init">
+        <form onsubmit="handleFormSubmit(event, 'contacto')" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="c-nombre">Nombre</label>
+            <input type="text" id="c-nombre" class="form-input" placeholder="Tu nombre completo" autocomplete="name"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="c-email">Correo electrónico</label>
+            <input type="email" id="c-email" class="form-input" placeholder="tu@correo.com" autocomplete="email"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="c-asunto">Asunto</label>
+            <select id="c-asunto" class="form-select">
+              <option value="">¿Sobre qué nos escribes?</option>
+              <option>Voluntariado</option>
+              <option>Donación</option>
+              <option>Alianza institucional</option>
+              <option>Prensa y medios</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="c-mensaje">Mensaje</label>
+            <textarea id="c-mensaje" class="form-textarea" placeholder="Escríbenos..." style="min-height:120px;"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
+            Enviar mensaje →
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ───────────────────────────────────────────────── -->
+<footer id="footer" aria-label="Pie de página">
+  <div style="background:var(--green-950);padding:4rem 0 2rem;border-top:1px solid rgba(255,255,255,.06);">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">Raíces Vivas</div>
+          <div class="footer-brand-sub">Con Emiliano Vargas · Perú</div>
+          <p class="footer-brand-desc">
+            Conservando la biodiversidad peruana desde 2016 a través de ciencia, comunidad y acción directa en el territorio.
+          </p>
+          <div class="footer-socials" aria-label="Redes sociales">
+            <a href="#" class="footer-social" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1" y="1" width="14" height="14" rx="4" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.5"/><circle cx="11.5" cy="4.5" r=".75" fill="currentColor"/></svg>
+            </a>
+            <a href="#" class="footer-social" aria-label="Facebook">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 2H8a3 3 0 00-3 3v2H3v3h2v5h3V10h2l1-3H8V5a1 1 0 011-1h1V2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="#" class="footer-social" aria-label="YouTube">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1" y="3" width="14" height="10" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M6.5 5.5l4 2.5-4 2.5V5.5z" fill="currentColor"/></svg>
+            </a>
+            <a href="#" class="footer-social" aria-label="TikTok">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M11 1a4 4 0 004 4M11 1v9a4 4 0 01-4 4 4 4 0 01-4-4 4 4 0 014-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Navegación</div>
+          <ul class="footer-links" role="list">
+            <li><a href="#mision">Misión</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#impacto">Impacto</a></li>
+            <li><a href="#quien-soy">Quién soy</a></li>
+            <li><a href="#galeria">Galería</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Participa</div>
+          <ul class="footer-links" role="list">
+            <li><a href="#aporta">Voluntariado</a></li>
+            <li><a href="#aporta">Empresas y alianzas</a></li>
+            <li><a href="#donaciones">Donaciones</a></li>
+            <li><a href="#aporta">Comunidad</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Contacto</div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon" aria-hidden="true">📧</span>
+            <a href="mailto:[correo@raicesvivas.pe]" style="color:inherit;">[correo@raicesvivas.pe]</a>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon" aria-hidden="true">📱</span>
+            <span>[+51 9XX XXX XXX]</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon" aria-hidden="true">📍</span>
+            <span>Lima, Perú</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-quote">"La selva no se defiende sola. Se defiende con cada persona que decide actuar."</p>
+        <p class="footer-copy">© 2024 Raíces Vivas · Todos los derechos reservados</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast notification -->
+<div id="toast" role="alert" aria-live="polite" style="
+  position:fixed;bottom:2rem;right:2rem;z-index:var(--z-toast);
+  background:var(--green-700);color:var(--white);
+  padding:1rem 1.5rem;border-radius:var(--radius-md);
+  box-shadow:var(--shadow-lg);font-size:.875rem;font-weight:500;
+  transform:translateY(120%);transition:transform .4s cubic-bezier(.34,1.56,.64,1);
+  max-width:300px;
+">
+  ✓ <span id="toast-msg">Mensaje enviado</span>
+</div>
+
+<script>
+(function() {
+  /* ── Scroll progress ─────────────────────────────── */
+  const progress = document.getElementById('scroll-progress');
+  const navbar   = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    progress.style.width = pct + '%';
+    if (window.scrollY > 60) navbar.classList.add('scrolled');
+    else navbar.classList.remove('scrolled');
+  }, { passive: true });
+
+  /* ── Mobile nav ───────────────────────────────────── */
+  const hamburger  = document.getElementById('hamburger-btn');
+  const mobileNav  = document.getElementById('mobile-nav');
+  const mobileClose= document.getElementById('mobile-close');
+
+  function openNav() {
+    mobileNav.classList.add('open');
+    hamburger.setAttribute('aria-expanded','true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeNav() {
+    mobileNav.classList.remove('open');
+    hamburger.setAttribute('aria-expanded','false');
+    document.body.style.overflow = '';
+  }
+  hamburger.addEventListener('click', openNav);
+  mobileClose.addEventListener('click', closeNav);
+  document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', closeNav));
+
+  /* ── Hero carousel ────────────────────────────────── */
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots   = document.querySelectorAll('.hero-dot');
+  let current  = 0, timer;
+
+  function goSlide(i) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    dots[current].setAttribute('aria-selected','false');
+    current = i;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+    dots[current].setAttribute('aria-selected','true');
+  }
+  function nextSlide() { goSlide((current + 1) % slides.length); }
+  function startTimer() { timer = setInterval(nextSlide, 5000); }
+  function restartTimer() { clearInterval(timer); startTimer(); }
+
+  dots.forEach((d, i) => d.addEventListener('click', () => { goSlide(i); restartTimer(); }));
+  startTimer();
+
+  /* ── Intersection observer for fade-up ────────────── */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up-init').forEach(el => io.observe(el));
+
+  /* stagger */
+  const ioStagger = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const children = e.target.querySelectorAll(':scope > *');
+        children.forEach((child, i) => {
+          setTimeout(() => child.classList.add('visible'), i * 120);
+        });
+        ioStagger.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.stagger').forEach(el => ioStagger.observe(el));
+
+  /* ── Counters ─────────────────────────────────────── */
+  function animateCounter(el, target, suffix) {
+    const start = 0, duration = 2000;
+    let startTime = null;
+    function step(ts) {
+      if (!startTime) startTime = ts;
+      const elapsed = ts - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 4);
+      el.textContent = Math.round(start + (target - start) * ease).toLocaleString('es-PE');
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  const ioCounter = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.counter').forEach(el => {
+          animateCounter(el, parseInt(el.dataset.target));
+        });
+        ioCounter.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  const impactoSection = document.querySelector('#impacto > div');
+  if (impactoSection) ioCounter.observe(impactoSection);
+
+  /* Hero stat counters */
+  const ioHero = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        ['stat-ha','stat-vol','stat-proy'].forEach(id => {
+          const el = document.getElementById(id);
+          if (el) animateCounter(el, parseInt(el.dataset.target));
+        });
+        ioHero.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  const heroSection = document.getElementById('inicio');
+  if (heroSection) ioHero.observe(heroSection);
+
+  /* ── Transparency bars animation ─────────────────── */
+  const ioBars = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.transparency-bar-fill').forEach((bar, i) => {
+          setTimeout(() => {
+            bar.style.width = bar.dataset.width;
+          }, i * 150);
+        });
+        ioBars.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  const donBox = document.querySelector('.donacion-info-box');
+  if (donBox) ioBars.observe(donBox);
+
+  /* ── Tabs ─────────────────────────────────────────── */
+  document.querySelectorAll('.aporta-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.aporta-tab').forEach(t => {
+        t.classList.remove('active'); t.setAttribute('aria-selected','false');
+      });
+      document.querySelectorAll('.aporta-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active'); tab.setAttribute('aria-selected','true');
+      document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+    });
+  });
+
+  /* ── Donation helpers ─────────────────────────────── */
+  window.selectAmount = function(el) {
+    document.querySelectorAll('.amount-card').forEach(c => {
+      c.classList.remove('selected'); c.setAttribute('aria-pressed','false');
+    });
+    el.classList.add('selected'); el.setAttribute('aria-pressed','true');
+    document.getElementById('custom-amount').value = '';
+  };
+
+  const methods = {
+    'Yape':         '📱 <strong>Yape:</strong> Número [+51 9XX XXX XXX] — a nombre de [Nombre]<br><small style="color:var(--green-600);">Envíanos el comprobante a <strong>[correo]</strong> indicando "Donación Raíces Vivas"</small>',
+    'Plin':         '💳 <strong>Plin:</strong> Número [+51 9XX XXX XXX] — a nombre de [Nombre]<br><small style="color:var(--green-600);">Envía captura a [correo]</small>',
+    'PayPal':       '🌐 <strong>PayPal:</strong> <a href="https://paypal.me/[usuario]" style="color:var(--green-600);">paypal.me/[usuario]</a><br><small style="color:var(--green-600);">Añade "Donación Raíces Vivas" en el comentario</small>',
+    'Transferencia':'🏦 <strong>Transferencia:</strong> Banco [X] · CCI: [XXXX-XXXX-XXXX]<br><small style="color:var(--green-600);">A nombre de [Razón social o nombre] · Envía voucher a [correo]</small>',
+  };
+  window.selectMethod = function(el) {
+    document.querySelectorAll('.method-badge').forEach(m => m.classList.remove('active'));
+    el.classList.add('active');
+    const key = el.textContent.trim().replace(/[^\w]/g,'') === 'Yape' ? 'Yape' :
+                el.textContent.includes('Plin') ? 'Plin' :
+                el.textContent.includes('PayPal') ? 'PayPal' : 'Transferencia';
+    const found = Object.keys(methods).find(k => el.textContent.includes(k));
+    if (found) document.getElementById('payment-instructions').innerHTML = methods[found];
+  };
+
+  window.handleDonation = function() {
+    showToast('¡Gracias! Sigue las instrucciones de pago 💚');
+  };
+
+  /* ── Form submit ──────────────────────────────────── */
+  window.handleFormSubmit = function(e, type) {
+    e.preventDefault();
+    const msgs = {
+      voluntariado: '¡Inscripción recibida! Te contactaremos pronto 🌿',
+      empresa:      '¡Formulario enviado! Nos pondremos en contacto en 48h 🤝',
+      contacto:     '¡Mensaje enviado! Responderemos a la brevedad 📧',
+    };
+    showToast(msgs[type] || '¡Enviado correctamente!');
+    e.target.reset();
+  };
+
+  /* ── Toast ────────────────────────────────────────── */
+  let toastTimer;
+  function showToast(msg) {
+    const toast = document.getElementById('toast');
+    document.getElementById('toast-msg').textContent = msg;
+    toast.style.transform = 'translateY(0)';
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => { toast.style.transform = 'translateY(120%)'; }, 4000);
+  }
+
+  /* ── Galería masonry ──────────────────────────────── */
+  const galleryItems = [
+    { cat: 'proyectos',    label: 'Loreto, 2023',      h: 280, bg: 'linear-gradient(135deg,#1a5c35,#2d8050)' },
+    { cat: 'expediciones', label: 'Madre de Dios',     h: 200, bg: 'linear-gradient(160deg,#245238,#0d3b1f)' },
+    { cat: 'campo',        label: 'Monitoreo',          h: 240, bg: 'linear-gradient(135deg,#3a8558,#132a1e)' },
+    { cat: 'voluntarios',  label: 'Equipo Cusco',       h: 180, bg: 'linear-gradient(135deg,#5c3a1e,#8a5530)' },
+    { cat: 'proyectos',    label: 'Reforestación',      h: 220, bg: 'linear-gradient(160deg,#2e6b47,#1a3a2a)' },
+    { cat: 'expediciones', label: 'Andes, 2022',        h: 300, bg: 'linear-gradient(135deg,#7a4e2d,#3d2512)' },
+    { cat: 'campo',        label: 'Flora nativa',       h: 200, bg: 'linear-gradient(135deg,#52a670,#245238)' },
+    { cat: 'voluntarios',  label: 'Taller comunitario', h: 250, bg: 'linear-gradient(160deg,#9a6340,#5c3a1e)' },
+    { cat: 'proyectos',    label: 'Piura costera',      h: 180, bg: 'linear-gradient(135deg,#2e6b47,#132a1e)' },
+    { cat: 'campo',        label: 'Fauna Loreto',       h: 260, bg: 'linear-gradient(135deg,#3a8558,#0d3b1f)' },
+    { cat: 'voluntarios',  label: 'Brigadistas',        h: 200, bg: 'linear-gradient(160deg,#b87c55,#7a4e2d)' },
+    { cat: 'expediciones', label: 'Selva alta',         h: 230, bg: 'linear-gradient(135deg,#245238,#1a3a2a)' },
+  ];
+
+  const grid = document.getElementById('masonry-grid');
+  function renderGallery(filter) {
+    const filtered = filter === 'all' ? galleryItems : galleryItems.filter(i => i.cat === filter);
+    grid.innerHTML = '';
+    filtered.forEach(item => {
+      const div = document.createElement('div');
+      div.className = 'masonry-item';
+      div.setAttribute('role','listitem');
+      div.innerHTML = `
+        <div class="masonry-item-inner">
+          <div class="masonry-placeholder" style="height:${item.h}px;background:${item.bg};">
+            [FOTO: ${item.label}]
+          </div>
+        </div>
+        <div class="masonry-item-overlay" aria-hidden="true">
+          <span class="masonry-item-label">${item.label}</span>
+        </div>
+      `;
+      grid.appendChild(div);
+    });
+  }
+  renderGallery('all');
+
+  document.querySelectorAll('.galeria-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.galeria-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderGallery(btn.dataset.filter);
+    });
+  });
+
+  /* ── Keyboard accessibility for button-role elements ── */
+  document.querySelectorAll('[role="button"]').forEach(el => {
+    el.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
+    });
+  });
+
+})();
+</script>
+</body>
+</html>
