@@ -1,0 +1,178 @@
+╔════════════════════════════════════════════════════════════════════════════════╗
+║                    GUÍA RÁPIDA: QUÉ REEMPLAZAR                                 ║
+║                         (Una página - Todo lo que necesitas)                    ║
+╚════════════════════════════════════════════════════════════════════════════════╝
+
+ESTRUCTURA DE CARPETAS A CREAR:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+images/
+├── hero/
+│   ├── hero-slide-1.jpg
+│   ├── hero-slide-2.jpg
+│   └── hero-slide-3.jpg
+├── mision/
+│   └── emiliano-perfil.jpg
+├── proyectos/
+│   ├── proyecto-1-principal.jpg
+│   ├── proyecto-1-thumb-1.jpg
+│   ├── proyecto-1-thumb-2.jpg
+│   ├── proyecto-1-thumb-3.jpg
+│   ├── proyecto-1-thumb-4.jpg
+│   ├── proyecto-2-principal.jpg
+│   ├── proyecto-2-thumb-1.jpg
+│   ├── proyecto-2-thumb-2.jpg
+│   ├── proyecto-2-thumb-3.jpg
+│   ├── proyecto-2-thumb-4.jpg
+│   ├── proyecto-3-principal.jpg
+│   ├── proyecto-3-thumb-1.jpg
+│   ├── proyecto-3-thumb-2.jpg
+│   ├── proyecto-3-thumb-3.jpg
+│   └── proyecto-3-thumb-4.jpg
+└── galeria/
+    ├── galeria-1.jpg
+    ├── galeria-2.jpg
+    ├── galeria-3.jpg
+    ├── galeria-4.jpg
+    ├── galeria-5.jpg
+    └── galeria-6.jpg
+
+
+QUÉ BUSCAR Y REEMPLAZAR EN web_botanica.html:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1️⃣  HERO SLIDES (Busca esto en línea ~244-252):
+
+    BUSCAR:
+    ────────────────────────────────────────────────────
+    .hero-slide:nth-child(1) {
+      background: linear-gradient(135deg, #0d3b1f 0%, #1a5c35 40%, #2d8050 80%, #1a3a2a 100%);
+    }
+    .hero-slide:nth-child(2) {
+      background: linear-gradient(135deg, #1a2e10 0%, #2d5a1e 40%, #4a8030 80%, #1f3b15 100%);
+    }
+    .hero-slide:nth-child(3) {
+      background: linear-gradient(135deg, #2c1a0e 0%, #5c3a1e 40%, #8a5530 80%, #3d2512 100%);
+    }
+
+    REEMPLAZAR CON:
+    ────────────────────────────────────────────────────
+    .hero-slide:nth-child(1) {
+      background-image: url('images/hero/hero-slide-1.jpg');
+    }
+    .hero-slide:nth-child(2) {
+      background-image: url('images/hero/hero-slide-2.jpg');
+    }
+    .hero-slide:nth-child(3) {
+      background-image: url('images/hero/hero-slide-3.jpg');
+    }
+
+
+2️⃣  MISION PHOTO (Busca en línea ~1218-1233):
+
+    BUSCAR:
+    ────────────────────────────────────────────────────
+    <div class="mision-photo-inner">
+      <svg viewBox="0 0 300 380">
+        <rect width="300" height="380" fill="url(#grad-botanical)"></rect>
+        ...más contenido SVG...
+      </svg>
+    </div>
+
+    REEMPLAZAR CON:
+    ────────────────────────────────────────────────────
+    <div class="mision-photo-inner">
+      <img src="images/mision/emiliano-perfil.jpg" alt="Emiliano Vargas" 
+           style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+
+
+3️⃣  PROYECTO 1 MAIN IMAGE (Busca en línea ~1307):
+
+    BUSCAR:
+    ────────────────────────────────────────────────────
+    <div class="proyecto-visual-bg" 
+         style="background: linear-gradient(135deg,#1a5c35 0%,#2d8050 40%,#1a3a2a 100%);"></div>
+
+    REEMPLAZAR CON:
+    ────────────────────────────────────────────────────
+    <div class="proyecto-visual-bg" 
+         style="background-image: url('images/proyectos/proyecto-1-principal.jpg'); 
+                 background-size: cover; background-position: center;"></div>
+
+
+4️⃣  PROYECTO 1 THUMBNAILS (Busca en línea ~1318-1321):
+
+    BUSCAR:
+    ────────────────────────────────────────────────────
+    <div class="gallery-thumb">
+      <div class="gallery-thumb-inner"></div>
+    </div>
+    (Repite 4 veces)
+
+    REEMPLAZAR CON (4 veces, numerando 1, 2, 3, 4):
+    ────────────────────────────────────────────────────
+    <div class="gallery-thumb">
+      <div class="gallery-thumb-inner" 
+           style="background-image: url('images/proyectos/proyecto-1-thumb-1.jpg'); 
+                   background-size: cover; background-position: center;"></div>
+    </div>
+
+    (Luego 2, 3, 4 siguiendo el mismo patrón)
+
+
+5️⃣  PROYECTO 2 (Busca en línea ~1381):
+
+    IGUAL que Proyecto 1, pero con:
+    - proyecto-2-principal.jpg
+    - proyecto-2-thumb-1.jpg hasta proyecto-2-thumb-4.jpg
+
+
+6️⃣  PROYECTO 3 (Busca en línea ~1454):
+
+    IGUAL que Proyecto 1, pero con:
+    - proyecto-3-principal.jpg
+    - proyecto-3-thumb-1.jpg hasta proyecto-3-thumb-4.jpg
+
+
+7️⃣  GALERÍA (Busca en línea ~1750+, busca ".galeria-item"):
+
+    BUSCAR:
+    ────────────────────────────────────────────────────
+    <div class="galeria-item"></div>
+    (Repite 6 veces)
+
+    REEMPLAZAR CON (6 veces, numerando 1, 2, 3, 4, 5, 6):
+    ────────────────────────────────────────────────────
+    <div class="galeria-item" 
+         style="background-image: url('images/galeria/galeria-1.jpg'); 
+                 background-size: cover; background-position: center;"></div>
+
+    (Luego 2, 3, 4, 5, 6 siguiendo el mismo patrón)
+
+
+PASOS FINALES:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✓ Abre web_botanica.html con Notepad/VSCode/Editor de texto
+✓ Presiona Ctrl+H (Cmd+H en Mac) para "Buscar y Reemplazar"
+✓ Copia el texto de BUSCAR
+✓ Copia el texto de REEMPLAZAR CON
+✓ Haz click en "Reemplazar" (o "Reemplazar Todo")
+✓ Presiona Ctrl+S para guardar
+✓ Abre en navegador y verifica que aparecen las imágenes
+
+
+IMPORTANTE:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+• Todas las rutas deben empezar con: images/
+• Los nombres de carpeta y archivo deben coincidir exactamente
+• Las rutas son sensibles a mayúsculas y minúsculas
+• Si una imagen no aparece, verifica que:
+  - El archivo existe en la carpeta correcta
+  - El nombre es exacto (sin espacios extras)
+  - La ruta está bien escrita
+
+
+¡LISTO! Sigue estos pasos y tus imágenes aparecerán perfectamente.

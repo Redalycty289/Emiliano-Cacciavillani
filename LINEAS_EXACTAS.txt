@@ -1,0 +1,178 @@
+════════════════════════════════════════════════════════════════════════════════
+                         LÍNEAS EXACTAS DEL HTML
+════════════════════════════════════════════════════════════════════════════════
+
+Este archivo te muestra exactamente dónde buscar cada cosa en web_botanica.html
+
+Abre el archivo con Ctrl+G (o Cmd+G en Mac) para ir a una línea específica.
+
+
+1. HERO SLIDES (GRADIENTS)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  UBICACIÓN:  Línea 244-252 aproximadamente
+  BUSCAR:     ".hero-slide:nth-child"
+  
+  Reemplaza:
+  ┌─────────────────────────────────────────────────────────────────┐
+  │ background: linear-gradient(135deg, #0d3b1f...                  │
+  │ background: linear-gradient(135deg, #1a2e10...                  │
+  │ background: linear-gradient(135deg, #2c1a0e...                  │
+  └─────────────────────────────────────────────────────────────────┘
+
+  Con:
+  ┌─────────────────────────────────────────────────────────────────┐
+  │ background-image: url('images/hero/hero-slide-1.jpg');          │
+  │ background-image: url('images/hero/hero-slide-2.jpg');          │
+  │ background-image: url('images/hero/hero-slide-3.jpg');          │
+  └─────────────────────────────────────────────────────────────────┘
+
+
+2. MISION PHOTO (SVG → IMG)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  UBICACIÓN:  Línea 1218-1233 aproximadamente
+  BUSCAR:     "<div class="mision-photo-inner">"
+  
+  Reemplaza:
+  ┌─────────────────────────────────────────────────────────────────┐
+  │ <svg viewBox="0 0 300 380">                                       │
+  │   <rect width="300" height="380" fill="url(#grad-botanical)"... │
+  │   <!-- SVG content aquí -->                                      │
+  │ </svg>                                                            │
+  └─────────────────────────────────────────────────────────────────┘
+
+  Con:
+  ┌─────────────────────────────────────────────────────────────────┐
+  │ <img src="images/mision/emiliano-perfil.jpg"                    │
+  │      alt="Emiliano Vargas - Fundador de Raíces Vivas"           │
+  │      style="width: 100%; height: 100%; object-fit: cover;">     │
+  └─────────────────────────────────────────────────────────────────┘
+
+
+3. PROYECTO 1 - IMAGEN PRINCIPAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  UBICACIÓN:  Línea 1307 aproximadamente
+  BUSCAR:     "background: linear-gradient(135deg,#1a5c35"
+  
+  Reemplaza:
+  ┌─────────────────────────────────────────────────────────────────┐
+  │ <div class="proyecto-visual-bg"                                  │
+  │      style="background: linear-gradient(135deg,#1a5c35...">    │
+  └─────────────────────────────────────────────────────────────────┘
+
+  Con:
+  ┌─────────────────────────────────────────────────────────────────┐
+  │ <div class="proyecto-visual-bg"                                  │
+  │      style="background-image: url('images/proyectos/           │
+  │      proyecto-1-principal.jpg'); background-size: cover;        │
+  │      background-position: center;">                             │
+  └─────────────────────────────────────────────────────────────────┘
+
+
+4. PROYECTO 1 - THUMBNAILS (4 imágenes pequeñas)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  UBICACIÓN:  Línea 1318-1321 aproximadamente
+  BUSCAR:     "<div class="gallery-thumb">"
+  
+  Encuentra 4 divs vacíos consecutivos y reemplaza cada uno:
+
+  Thumbnail 1 (línea 1318):
+  ┌─────────────────────────────────────────────────────────────────┐
+  │ <div class="gallery-thumb">                                      │
+  │   <div class="gallery-thumb-inner"></div>                       │
+  │ </div>                                                            │
+  └─────────────────────────────────────────────────────────────────┘
+
+  Con:
+  ┌─────────────────────────────────────────────────────────────────┐
+  │ <div class="gallery-thumb">                                      │
+  │   <div class="gallery-thumb-inner"                              │
+  │        style="background-image: url('images/proyectos/         │
+  │        proyecto-1-thumb-1.jpg'); background-size: cover;       │
+  │        background-position: center;"></div>                    │
+  │ </div>                                                            │
+  └─────────────────────────────────────────────────────────────────┘
+
+  (Repite con thumb-2.jpg, thumb-3.jpg, thumb-4.jpg para los 3 siguientes)
+
+
+5. PROYECTO 2 - IMAGEN PRINCIPAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  UBICACIÓN:  Línea 1381 aproximadamente
+  BUSCAR:     "background: linear-gradient(135deg,#2d5a1e"
+  
+  Reemplaza igual que Proyecto 1, pero con "proyecto-2-principal.jpg"
+
+
+6. PROYECTO 2 - THUMBNAILS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  UBICACIÓN:  Línea 1392-1405 aproximadamente
+  
+  Reemplaza igual que Proyecto 1, pero con:
+  - proyecto-2-thumb-1.jpg
+  - proyecto-2-thumb-2.jpg
+  - proyecto-2-thumb-3.jpg
+  - proyecto-2-thumb-4.jpg
+
+
+7. PROYECTO 3 - IMAGEN PRINCIPAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  UBICACIÓN:  Línea 1454 aproximadamente
+  BUSCAR:     "background: linear-gradient(135deg,#3a8558"
+  
+  Reemplaza igual que Proyecto 1, pero con "proyecto-3-principal.jpg"
+
+
+8. PROYECTO 3 - THUMBNAILS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  UBICACIÓN:  Línea 1465-1478 aproximadamente
+  
+  Reemplaza igual que Proyecto 1, pero con:
+  - proyecto-3-thumb-1.jpg
+  - proyecto-3-thumb-2.jpg
+  - proyecto-3-thumb-3.jpg
+  - proyecto-3-thumb-4.jpg
+
+
+9. GALERÍA (6 imágenes grandes)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  UBICACIÓN:  Línea 1750+ aproximadamente
+  BUSCAR:     "<div class="galeria-item"></div>"
+  
+  Encuentra 6 divs vacíos consecutivos y reemplaza cada uno:
+
+  Galería Item 1:
+  ┌─────────────────────────────────────────────────────────────────┐
+  │ <div class="galeria-item"></div>                                 │
+  └─────────────────────────────────────────────────────────────────┘
+
+  Con:
+  ┌─────────────────────────────────────────────────────────────────┐
+  │ <div class="galeria-item"                                        │
+  │      style="background-image: url('images/galeria/galeria-1.jpg');  │
+  │      background-size: cover; background-position: center;"></div> │
+  └─────────────────────────────────────────────────────────────────┘
+
+  (Repite con galeria-2.jpg hasta galeria-6.jpg para los 5 siguientes)
+
+
+CÓMO USAR ESTA INFORMACIÓN:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Abre web_botanica.html en tu editor de texto
+2. Presiona Ctrl+G (o Cmd+G) para ir a línea
+3. Escribe el número de línea
+4. Busca con Ctrl+F la palabra clave
+5. Reemplaza manualmente o con Ctrl+H
+6. Guarda con Ctrl+S
+7. Abre en navegador para ver el resultado
+
+════════════════════════════════════════════════════════════════════════════════
